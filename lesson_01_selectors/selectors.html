@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spener Aranda">
+        <meta name="description" content="CSS Lesson on Selectors">
+        <title>CSS Selectors</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>CSS Selectors</h1>
+            <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank">CSS Selectors</a> module defines the patterns to select elements to which a set of CSS rules are then applied along with their specificity.</p>
+            <nav>
+                <ul>
+                    <li><a href="./">Back to Home</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <h2>Type Selectors</h2>
+                <p>The CSS type selector matches elements by name</p>
+                <pre>
+                    CSS
+                    <code>
+                        span {
+                            background-color: skyblue;
+                        }
+                    </code>
+                    HTML
+                    <code>
+                        &lt;span&gt;Here's a span with some text.&lt;/span&gt;
+                        &lt;p&gt;Here's a p with some text.&lt;/p&gt;
+                        &lt;span&gt;Here's a span with some text.&lt;/span&gt;
+                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h2>Class Selectors</h2>
+                <p>The CSS class selector matches elements based on the contents of their class attribute</p>
+                <pre>
+                    CSS 
+                    <code>
+                        .red {
+                            color: #f33;
+                        }
+                        .yellow-bg {
+                            background: #ffa;
+                        }
+                    </code>
+                    HTML
+                    <code>
+                        &lt;p class="red"&gt;This paragraph has red text.&lt;/p&gt;
+                        &lt;p class="red yellow-bg"&gt;This paragraph has red text and a yellow background.&lt;/p&gt;
+                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h2>ID Selectors</h2>
+                <p>The CSS ID selector matches an element based on the value of the element's <code>id</code> attribute. In order for the element to be selected, its <code>id</code> attribute must match exactly the value given in the selector</p>
+                <pre>
+                    CSS
+                    <code>
+                        #blue {
+                            background-color: skyblue;
+                        }
+                    </code>
+                    HTML
+                    <code>
+                        &lt;p id="blue"&gt;This paragraph has a blue background.&lt;/p&gt;
+                        &lt;p&gt;This is just a regular paragraph.&lt;/p&gt;
+                    </code>
+                </pre>
+            </article>
+
+            <article>
+                <h2>Attribute Selectors</h2>
+                <p>The CSS attribute selector matches elements based on the element having a given attribute explicitly set, with options for defining an attribue value or substring value match.</p>
+
+                <pre>
+                    CSS 
+                    <code>
+                        a {
+                            color: blue;
+                          }
+                          
+                          /* Internal links, beginning with "#" */
+                          a[href^="#"] {
+                            background-color: gold;
+                          }
+                          
+                          /* Links with "example" anywhere in the URL */
+                          a[href*="example"] {
+                            background-color: silver;
+                          }
+                          
+                          /* Links with "insensitive" anywhere in the URL,
+                             regardless of capitalization */
+                          a[href*="insensitive" i] {
+                            color: cyan;
+                          }
+                          
+                          /* Links with "cAsE" anywhere in the URL,
+                          with matching capitalization */
+                          a[href*="cAsE" s] {
+                            color: pink;
+                          }
+                          
+                          /* Links that end in ".org" */
+                          a[href$=".org"] {
+                            color: red;
+                          }
+                          
+                          /* Links that start with "https://" and end in ".org" */
+                          a[href^="https://"][href$=".org"]
+                          {
+                            color: green;
+                          }
+                    </code>
+                    HTML 
+                    <code>
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href="#internal"&gt;Internal link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="http://example.com"&gt;Example link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="#InSensitive"&gt;Insensitive internal link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="http://example.org"&gt;Example org link&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href="https://example.org"&gt;Example https org link&lt;/a&gt;&lt;/li&gt;
+                          &lt;/ul&gt;
+                    </code>
+                </pre>
+            </article>
+            
+            <article>
+                <h2>Universal Selectors</h2>
+                <p>The CSS universal selector (*) matches elements of any type.</p>
+                <pre>
+                    <code>
+                        /* Selects all elements */
+                        * {
+                            color: green;
+                        }
+                    </code>
+                </pre>
+            </article>
+            <article>
+                <h2>Specificity</h2>
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Specificity" target="_blank">Specificity</a> is the algorithm used by browsers to determine the CSS declaration that is the most relevant to an element, which in turn, determines the property value to apply to the element. The algorithm calculates the weight of a CSS selector to determine which rule from competing CSS declarations gets applied to an element.</p>
+
+                <section>
+                    <h3>Selector weight categories</h3>
+                    <p>The selector weight categories are listed in the order of decreasing specificity:</p>
+                    <dl>
+                        <dt>ID column</dt>
+                        <dd>Includes only ID selectors, such as #example. For each ID in a matching selector, add 1-0-0 to the weight value.</dd>
+
+                        <dt>CLASS column</dt>
+                        <dd>Includes class selectors, such as .myClass, attribute selectors like [type="radio"] and [lang|="fr"], and pseudo-classes, such as :hover, :nth-of-type(3n), and :required. For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.</dd>
+
+                        <dt>TYPE column</dt>
+                        <dd>Includes type selectors, such as p, h1, and td, and pseudo-elements like ::before, ::placeholder, and all other selectors with double-colon notation. For each type or pseudo-element in a matching selector, add 0-0-1 to the weight value.</dd>
+                    </dl>
+                    <p>Use <a href="https://specificity.keegan.st" target="_blank">specificity calculator</a></p>
+                </section>
+                <section>
+                    <h3>Examples</h3>
+                    <pre>
+                        Example 1
+                        <code>
+                            [type="password"] {
+                                /* 0-1-0 */
+                              }
+                              input:focus {
+                                /* 0-1-1 */
+                              }
+                              :root #myApp input:required {
+                                /* 1-2-1 */
+                              }
+                        </code>
+                        Example 2
+                        <code>
+                            #myElement {
+                                color: green; /* 1-0-0  - WINS!! */
+                              }
+                              .bodyClass .sectionClass .parentClass [id="myElement"] {
+                                color: yellow; /* 0-4-0 */
+                              }
+                        </code>
+                        Example 3
+                        <code>
+                            #myElement {
+                                color: yellow; /* 1-0-0 */
+                              }
+                              #myApp [id="myElement"] {
+                                color: green; /* 1-1-0  - WINS!! */
+                              }
+                        </code>
+                        Example 4
+                        <code>
+                            :root input {
+                                color: green; /* 0-1-1 - WINS because CLASS column is greater */
+                              }
+                              html body main input {
+                                color: yellow; /* 0-0-4 */
+                              }
+                        </code>
+                    </pre>
+                </section>
+                
+            </article>
+
+            <ul>
+                <li><a href="#">Back to Top</a></li>
+            </ul>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+    </body>
+</html>

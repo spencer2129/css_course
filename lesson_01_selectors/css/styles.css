@@ -1,0 +1,44 @@
+/*
+* {
+    font-family: monospace;
+}
+*/
+body {
+    font-size: 22px;
+}
+
+h1, h2 {
+    color: blue;
+}
+
+p {
+    color: purple;
+}
+
+.first {
+    color: gray;
+}
+
+#second {
+    font-style: italic;
+    color: green;
+}
+
+a[href^="https://"][href*="mozilla"][href$=".org"] {
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+p span {
+    text-transform: uppercase;
+    background-color: gold;
+    color: black;
+}
+
+.highlight {
+    text-transform: uppercase;
+    background-color: gold;
+    color: black;
+    font-weight: bolder;
+}
