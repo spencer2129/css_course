@@ -21,7 +21,61 @@
         </header>
 
         <main>
-            
+            <article>
+                <h2>Block and Inline boxes</h2>
+                <p>Box has a display value of <code>block</code></p>
+                <ul>
+                    <li>The box will break onto a new line</li>
+                    <li>The <code>width</code> and <code>height</code> properties are respected</li>
+                    <li>Padding, margin and border will cause other elements to be pushed away from the box</li>
+                    <li>HTML elements such as <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code> have a display value of <code>block</code></li>
+                </ul>
+                <p>Box has a display value of <code>inline</code></p>
+                <ul>
+                    <li>The box will not break onto a new line</li>
+                    <li>The <code>width</code> and <code>height</code> properties will not apply</li>
+                    <li>top and bottom padding, margins and borders will apply but will not cause other inline boxes to move away from the box</li>
+                    <li>left and right padding, margins, and boders will apply and will cause other inline boxes to move away from the box</li>
+                    <li>HTML elements such as <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code> use <code>inline</code> as their display value by default</li>
+                </ul>
+                <p>By default the elements inside a box are also laid out in a normal flow and behave as block or inline boxes.</p>
+            </article>
+            <article>
+                <h2>Inner and Outer display types</h2>
+                <p><code>block</code> and <code>inline</code> display types are outer display types which means they affect how the box is laid out in relation to other boxes around it. But boxes also have an inner display type, which defines how elements inside the box are laid out.</p>
+                <p>For example, a box with display <code>block</code> uses the outer display type <code>block</code>, and it also dictates to use normal flow as the inner display type.  A box with display of <code>flex</code>, will use the outer display type <code>block</code>, but for the inner display type it will use <code>flex</code>.</p>
+            </article>
+            <article>
+                <h2>CSS Box Model</h2>
+                <p>The CSS box model as a whole applies to block boxes and defines how the different parts of a box - margin, border, padding and content - work together to create a box that you can see on a page. Inline boxes use just some of the behavior defined in the box model</p>
+
+                <section>
+                    <h3>Parts of a box</h3>
+                    <ul>
+                        <li>Content box: The area where your content is displayed</li>
+                        <li>Padding box: The padding sits around the content as white space</li>
+                        <li>Border box: The border box wraps the content and any padding</li>
+                        <li>Maring box: The margin is the outermost layer, wrapping the content, padding and border as whitespace between this box and other elements</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Standard Box Model</h3>
+                    <p>In a standard box model, if you set the <code>width</code> and <code>height</code> property values on a box, these values define the <code>width</code> and <code>height</code> of the <em>content box</em>. This means that any padding and borders are added to those dimensions to get the total size taken up by the box.</p>
+                    <p>By default a block element has <code>box-sizing: content-box</code> set.</p>
+                </section>
+
+                <Section>
+                    <h3>Alternative Box Model</h3>
+                    <p>In this model, any width is the width of the visible box on the page. The content area width is that width minus the width for the padding and border.</p>
+                    <p>To turn on the alternative model for an element, set <code>box-sizing: border-box</code> on it.</p>
+                </Section>
+            </article>
+            <p><a href="#">Back to Top</a></p>
         </main>
     </body>
+    <hr>
+    <footer>
+        <p>Copyright &copy; Spencer Aranda</p>
+    </footer>
 </html>
