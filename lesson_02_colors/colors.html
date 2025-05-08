@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spencer Aranda">
+        <meta name="description" content="CSS Lesson on Colors">
+        <title>CSS Colors</title>        
+    </head>
+
+    <body>
+        <header>
+            <h1>CSS Colors</h1>
+            <nav>
+                <ul>
+                    <li><a href="./">Back to Home</a></li>
+                </ul>
+            </nav>
+            <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color" target="_blank">color</a></code> CSS property sets the foreground color value of an element's text and text decorations, and sets the <code>currentcolor</code> value.</p>
+        </header>
+
+        <main>
+            <article>
+                <h2>hsl()</h2>
+                <p>the <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl" target="_blank">hsl()</a></code> functional notation expresses a color in the sRGB color space according to its <em>hue</em>, <em>saturation</em>, and <em>lightness</em> components. An optional <em>alpha</em> component represents the color's transparency</p>
+                <p>Defining <em>complementary colors</em> with <code>hsl()</code> can be done by adding or substracting 180 degres from the hue value, as they are positioned on the same diameter of the color wheel. For example, if the hue angle of a color is 10deg, its complementary has 190deg as its hue angle.</p>
+
+                <section>
+                    <h3>Description of Values</h3>
+                    <dl>
+                        <dt>hue</dt>
+                        <dd>A number, and angle or the keyword non representing the color's hue angle</dd>
+
+                        <dt>saturation</dt>
+                        <dd>A percentange or the keyword none. This value represents the color's saturation. For example, 100% is completely saturated, while 0% is completely unsaturated (gray)</dd>
+
+                        <dt>lightness</dt>
+                        <dd>A percentage or the keyword none. This value represents the color's lightness. For example, 100% is white, 0% is black, and 50% is "normal"</dd>
+
+                        <dt>alpha</dt>
+                        <dd>An alpha value representing the channel value of the color, where the number 0 correnponds to fully transparent, and 1 corresponds to fully opaque. If the alpha channel value is not specified, it defaults to 1 or 100%.</dd>
+                    </dl>
+                </section>
+            </article>
+            <hr>
+            <article>
+                <h2>rgb()</h2>
+                <p>The <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb" target="_blank">rgb()</a></code> functional notation expresses a color in the sRGB color space according to its red, green, and blue components. An optional alpha component represents the color's transparency.</p>
+
+                <section>
+                    <h3>Description of Values</h3>
+                    
+                    <dl>
+                        <dt>red, blue, green</dt>
+                        <dd>Each value can be represented as a number between 0 and 255, a percentange between 0% and 100%, or the keyword none. These values represent the red, green, and blue channels, respectively.</dd>
+
+                        <dt>alpha</dt>
+                        <dd>An alpha representing the alpha channel value of the color, where the number 0 corresponds to fully transparent, and 1 to fully opaque. If an alpha channel is not specified, it defaults to 100%</dd>
+                    </dl>
+                </section>
+            </article>
+            <hr>
+            <article>
+                <h2>Examples</h2>
+                <pre>
+                    <code>
+                        /* Keyword values */
+                        color: currentcolor;
+
+                        /* <named-color> values */
+                        color: red;
+                        color: orange;
+                        color: tan;
+                        color: rebeccapurple;
+
+                        /* <hex-color> values */
+                        color: #090;
+                        color: #009900;
+                        color: #090a;
+                        color: #009900aa;
+
+                        /* <rgb()> values and legacy <rgba()> values*/
+                        color: rgb(34, 12, 64);
+                        color: rgb(34, 12, 64, 0.6);
+                        color: rgba(34, 12, 64, 0.6);
+                        color: rgb(34 12 64 / 0.6);
+                        color: rgba(34 12 64 / 0.6);
+                        color: rgb(34.6 12 64 / 60%);
+                        color: rgba(34.6 12 64 / 60%);
+
+                        /* <hsl()> values and legacy <hsla()> values */
+                        color: hsl(30, 100%, 50%);
+                        color: hsl(30, 100%, 50%, 0.6);
+                        color: hsla(30, 100%, 50%, 0.6);
+                        color: hsl(30 100% 50% / 0.6);
+                        color: hsla(30 100% 50% / 0.6);
+                        color: hsl(30.2 100% 50% / 60%);
+                        color: hsla(30.2 100% 50% / 60%);
+
+                        /* <hwb()> values */
+                        color: hwb(90 10% 10%);
+                        color: hwb(90 10% 10% / 0.5);
+                        color: hwb(90deg 10% 10%);
+                        color: hwb(1.5708rad 60% 0%);
+                        color: hwb(0.25turn 0% 40% / 50%);
+
+                        /* Global values */
+                        color: inherit;
+                        color: initial;
+                        color: revert;
+                        color: revert-layer;
+                        color: unset;
+                    </code>
+                </pre>
+            </article>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+    </body>
+</html>
