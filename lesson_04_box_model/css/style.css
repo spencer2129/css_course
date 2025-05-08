@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border-box sets the calculation for box model to include content, padding and border*/
+}
+.container {
+    border: 10px double red;
+    /*border-top: 5px solid green;
+    border-top-color: blue;
+    border-top-width: 15px;
+    border-top-style: ridge;
+    border-right: 10px dotted blue;*/
+    font-size: 1.5rem;
+    /*margin-top: 1.5em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    margin-left: 2em;*/
+    margin: 1.5em;
+    padding: 1.5em;
+
+    /* outline is not part of box model because the difference between it and the border is that outline doesnt take up space (hence not part of box model), 
+    but it styles just like border */
+    outline: 5px solid purple;
+    outline-offset: -20px;
+}
+
+/*Make a circle by styling div element with width, height, and border-radius having a size of half the width/height*/
+.circle {
+    margin: 3rem auto;
+    background-color: gold;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 50px;
+    outline: 2px solid red;
+    outline-offset: 0.25rem;
+}
