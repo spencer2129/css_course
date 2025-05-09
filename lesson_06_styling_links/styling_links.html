@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spencer Aranda">
+        <meta name="description" content="Lesson 6 CSS Styling Links">
+        <title>CSS Styling Links</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>CSS Styling Links</h1>
+            <nav>
+                <ul>
+                    <li><a href="./">Back to Home</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Text_styling/Styling_links" target="_blank">CSS Styling Links MDN Doc</a></li>
+                </ul>
+            </nav>
+            <p></p>
+        </header>
+
+        <main>
+            <article>
+                <h2>Link States</h2>
+                <p>Links can be in different states and therefore you can use CSS to style those states</p>
+                <dl>
+                    <dt>Link</dt>
+                    <dd>A link that has a destination. It can be styled using the <code>:style</code> pesudo class</dd>
+
+                    <dt>Visited</dt>
+                    <dd>A link that has already been visited. It can be styled using the <code>:visited</code> pseudo class</dd>
+
+                    <dt>Hover</dt>
+                    <dd>A link that is hovered over by a user's mouse pointer. It can be styled using the <code>:hover</code> pseudo class</dd>
+
+                    <dt>Focus</dt>
+                    <dd>A link that is focused (moved to by using the tab key). It can be styled using the <code>:focus</code> pseudo class</dd>
+
+                    <dt>Active</dt>
+                    <dd>A link that is activted (clicked on). It can be styled using the <code>:active</code> pseudo class</dd>
+                </dl>
+            </article>
+            <article>
+                <h2>Default styles</h2>
+                <p>Default links share these properties</p>
+                <ul>
+                    <li>Links are underlined</li>
+                    <li>Unvisited link are blue</li>
+                    <li>Visited links are purple</li>
+                    <li>Hovering a link makes the mouse pointer change to a small hand icon</li>
+                    <li>Focused links have an outline around them.</li>
+                    <li>Active links are red</li>
+                </ul>
+            </article>
+            <article>
+                <h2>Styling Link</h2>
+                <p>The order of the styling for the diffent link states are very important because link styles build on one another. The styles in the first rule will apply to all s ubsequenet ones.</p>
+                <pre>
+                    CSS
+                    <code>
+                        body {
+                            width: 300px;
+                            margin: 0 auto;
+                            font-size: 1.2rem;
+                            font-family: sans-serif;
+                          }
+                          
+                          p {
+                            line-height: 1.4;
+                          }
+                          
+                          a {
+                            outline-color: transparent;
+                          }
+                          
+                          a:link {
+                            color: #6900ff;
+                          }
+                          
+                          a:visited {
+                            color: #a5c300;
+                          }
+                          
+                          a:focus {
+                            text-decoration: none;
+                            background: #bae498;
+                          }
+                          
+                          a:hover {
+                            text-decoration: none;
+                            background: #cdfeaa;
+                          }
+                          
+                          a:active {
+                            background: #6900ff;
+                            color: #cdfeaa;
+                          }
+                          
+                    </code>
+                    HTML 
+                    <code>
+                        &lt;p&gt;
+                            There are several browsers available, such as &lt;a href="#"&gt;Mozilla Firefox&lt;/a&gt;,
+                            &lt;a href="#"&gt;Google Chrome&lt;/a&gt;, and &lt;a href="#"&gt;Microsoft Edge&lt;/a&gt;.
+                        &lt;/p&gt;
+                          
+                    </code>
+                </pre>
+            </article>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+
+    </body>
+</html>
