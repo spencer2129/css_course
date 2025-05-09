@@ -18,7 +18,79 @@
                 </ul>
             </nav>
         </header>
-        <main></main>
+        <main>
+            <article>
+                <h2>Constituent properties</h2>
+                <p>The <code>list-style</code> CSS property allows you to set all the following list style properties at once</p>
+
+                <dl>
+                    <dt><code>list-style-image</code></dt>
+                    <dd>Sets an image to be used as the list item marker</dd>
+                    <dd><code>list-style-image: url("/shared-assets/images/examples/rocket.svg");</code></dd>
+
+                    <dt><code>list-style-position</code></dt>
+                    <dd>Sets the position of the <code>::marker</code> relative to a list item</dd>
+                    <dd><code>list-style-position: inside;</code></dd>
+
+                    <dt><code>list-style-type</code></dt>
+                    <dd>Sets the marker (such as a disc, character, or ustom counter style) of alist item element.</dd>
+                    <dd><code>list-style-type: circle;</code></dd>
+                </dl>
+            </article>
+            <article>
+                <h2>Pseudo-Classes</h2>
+                <p>A pseudo-class is a selector that selects elements that are in a specific state, e.g., they are the first element of their type, or they are being hovered over by the mouse pointer. They tend to act as if you had applied a class to some part of your document, often helping you cut down on excess classes in your markup, and giving you more flexible, maintainable code.</p>
+                <p>
+                    <pre>
+                        <code>
+                            article p:first-child {
+                                font-size: 120%;
+                                font-weight: bold;
+                              }
+                        </code>
+                    </pre>
+                </p>
+                <p>All pseudo-classes target some bit of your document that is in a certain state, behaving as if you had added a class into your HTML.</p>
+            </article>
+            <article>
+                <h2>Pseudo-Elements</h2>
+                <p>They act as if you had added a whole new HTML element into the markup, rather than applying a class to existing elements. Pseudo-elements start with a double colon <code>::</code>, such as <code>::before</code>.</p>
+                <p>
+                    <pre>
+                        <code>
+                            article p::first-line {
+                                font-size: 120%;
+                                font-weight: bold;
+                              }
+                        </code>
+                    </pre>
+                </p>
+                <p>
+                    <pre>
+                        <code>
+                            &lt;p class="box"&gt;Content in the box in my HTML page.&lt;/p&gt;
+
+                            .box::after {
+                                content: " ➥";
+                              }
+                        </code>
+                    </pre>
+                </p>
+                <p>
+                    The <code>::market</code> pseudo element selects the market box of a list item, which contains the bullet or number.
+                    <pre>
+                        <code>
+                            li::marker {
+                                content: "✝ ";
+                                font-size: 1.2em;
+                              }
+                              
+                        </code>
+                    </pre>
+                </p>
+            </article>
+            <p><a href="#">Back to Top</a></p>
+        </main>
         <hr>
         <footer>
             <p>Copyright &copy; Spencer Aranda</p>
