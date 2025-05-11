@@ -19,6 +19,48 @@
         </header>
 
         <main>
+            <p>The <code>display</code> CSS property sets whether an element is treated as a block or inline box and the layout used for its children, such as flow layout, grid or flex.</p>
+            <p>The <code>display</code> property sets an element's inner and outer display types. The outer type sets an element's participation in flow layout; the inner type sets the layout of children.</p>
+            <article>
+                <h2>Grouped Values</h2>
+                <p>The <code>display</code> property is specified using keyword values and they can be grouped into six value categories</p>
+
+                <section>
+                    <h3>Outisde</h3>
+                    <p>These keywords specify the element's outer display type, which defines its role in flow layout</p>
+
+                    <dl>
+                        <dt><code>block</code></dt>
+                        <dd>The element generates a block box, generating line breaks both before and after the element when in the normal flow</dd>
+
+                        <dt><code>inline</code></dt>
+                        <dd>The element generates one or more inline boxes that do not generate line breaks before or after themselves. In normal flow, the next element will be on the same line if there is space.</dd>
+                    </dl>
+                    <p>NOTE: When browers that support multi-keyword syntax encouter a display property that only has an outer value, such as <code>display: block</code> or <code>display: inline</code>, the inner value is set to <code>flow</code> (e.g., <code>display: block flow</code> and <code>display: inline flow</code>).</p>
+                </section>
+
+                <section>
+                    <h3>Inside</h3>
+                    <p>These keywords specify the element's inner display type, which defines the type of formatting context that its contents are lad out in.</p>
+
+                    <dl>
+                        <dt><code>flow</code></dt>
+
+                        <dt><code>flow-root</code></dt>
+
+                        <dt><code>table</code></dt>
+
+                        <dt><code>flex</code></dt>
+
+                        <dt><code>grid</code></dt>
+
+                        <dt><code>ruby</code></dt>
+                        
+                    </dl>
+                    <p>NOTE: When browsers that support multi-keyword syntax encounter a display property that only has an inner value (e.g., <code>display: flex</code> or <code>display: grid</code>), the outer value is set to <code>block</code> (e.g., <code>display: block flex</code> and <code>display: block grid</code>).</p>
+                </section>
+
+            </article>
 
             <p><a href="#">Back to Top</a></p>
         </main>
