@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spencer Aranda">
+        <meta name="description" content="Lesson 12 CSS Position">
+        <title>CSS Position</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS Position</h1>
+            <nav>
+                <ul>
+                    <li><a href="./">Back to Home</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">CSS Position MDN Doc</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <p>The <code>position</code> CSS property sets how an element is positioned in a document. The <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> physical properties can be used to determine the final location of positioned elements.</p>
+            <section>
+                <h2>Sytanx and Values</h2>
+                <pre>
+                    CSS
+                    <code>
+                        position: static;
+                        position: relative;
+                        position: absolute;
+                        position: fixed;
+                        position: sticky;
+
+                        /* Global values */
+                        position: inherit;
+                        position: initial;
+                        position: revert;
+                        position: revert-layer;
+                        position: unset;
+                    </code>
+                </pre>
+
+                <dl>
+                    <dt><code>static</code></dt>
+                    <dd>The element is positioned according to the Normal Flow of the document. The <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>, and <code>z-index</code> properties have no effect. This is the default value</dd>
+
+                    <dt><code>relative</code></dt>
+                    <dd>The element is positioned according to the normal flow of the document, and then offset relative to itself on the values of <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code>. The offset does not affect the position of any other elements; thus, the space given for the element in the page layout is the same as if position were <code>static</code></dd>
+
+                    <dt><code>absolute</code></dt>
+                    <dd>The element is removed from the normal document flow (thus other elements are positioned as if it did not exist), and no space is created for the element in the page layout. The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing block. Its final position is determined by the values of <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code></dd>
+
+                    <dt><code>fixed</code></dt>
+                    <dd>The element is removed from the normal document flow, and no space is created for the element in the page layout. The element is positioned relative to its initial containing block which is the viewport in the case of visual media. Its final position is determined by the value of <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code></dd>
+
+                    <dt><code>sticky</code></dt>
+                    <dd>The element is positioned according to the normal flow of the document, and then offset relative to its nearest scrolling ancestor and containing block based on the values of <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code>. The offset does not affect the position of any other elements.</dd>
+                    
+                </dl>
+            </section>
+
+            <section>
+                <h2>Description for types of positioning</h2>
+                <ul>
+                    <li>A positioned element is an element whose computed position value is either relative, absolute, fixed, or sticky. (In other words, it's anything except static.)</li>
+                    <li>A relatively positioned element is an element whose computed position value is relative. The top and bottom properties specify the vertical offset from its normal position; the left and right properties specify the horizontal offset.</li>
+                    <li>An absolutely positioned element is an element whose computed position value is absolute or fixed. The top, right, bottom, and left properties specify offsets from the edges of the element's containing block. (The containing block is the ancestor relative to which the element is positioned.) The element establishes a new block formatting context (BFC) for its contents.</li>
+                    <li>A stickily positioned element is an element whose computed position value is sticky. It's treated as relatively positioned until its containing block crosses a specified threshold (such as setting top to value other than auto) within its flow root (or the container it scrolls within), at which point it is treated as "stuck" until meeting the opposite edge of its containing block.</li>
+                </ul>
+                <p><mark>Note: Fixed positioning is similar to absolute positioning, with the exception that the element's containing block is the initial containing block established by the viewport, unlike the absolute position which element's containing black can be either a positioned ancestor element or the initial containing block.</mark></p>
+            </section>
+            <p><a href="#">Back to Top</a></p>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+    </body>
+</html>
