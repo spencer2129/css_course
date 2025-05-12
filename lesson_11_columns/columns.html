@@ -18,7 +18,41 @@
             </nav>
         </header>
         <main>
-            
+            <p>The <code>columns</code> CSS property sets the number of columns to use, and the column's width</p>
+            <p><code>columns: &lt;column-count&gt; &lt;column-wdith&gt;</code></p>
+
+            <section>
+                <h2>Column Properties</h2>
+                <dl>
+                    <dt><code>column-count</code></dt>
+                    <dd>Breaks the element conent into the specified number of columns</dd>
+                    <dd><code>column-count: 3</code></dd>
+
+                    <dt><code>column-width</code></dt>
+                    <dd>Sets the dieal column width in a multi-column layout. The container will have as many columns as can fit without any of them having a width less than the <code>column-width</code> value. If the width of the container is narrower than the specified value, the single column's width will be smaller than the declared column width.</dd>
+                    <dd><code>column-width: 250px</code></dd>
+
+                    <dt><code>column-gap</code></dt>
+                    <dd>Sets the size of the gap between an element's columns.</dd>
+                    <dd><code>column-gap: 2rem</code></dd>
+                    <dd><code>column-gap: 20px</code></dd>
+                    <dd><code>column-gap: 10%</code></dd>
+
+                    <dt><code>column-span</code></dt>
+                    <dd>This property makes it possible for an element to span across all columns when its value is set to all.</dd>
+                    <dd><code>column-span: all</code></dd>
+
+                    <dt><code>column-rule</code></dt>
+                    <dd>Sets the width, style, and color of the line drawn between columns in a multi-column layout</dd>
+                    <dd><code>column-rule: &lt;column-rule-color&gt; &lt;column-rule-style&gt; &lt;column-rule-width&gt;</code></dd>
+                    <dd><code>column-rule: 5px solid red</code></dd>
+
+                    <dt><code>column-fill</code></dt>
+                    <dd>Controls how an element's content are balanced when broken into columns</dd>
+                    <dd><code>column-fill: auto</code> - columns are filled sequentially, and content takes up only the room it needs, possibly resulting in some columns remaining empty</dd>
+                    <dd><code>column-fill: balance</code> - default value. Content is equally divided between columns.</dd>
+                </dl>
+            </section>
         </main>
         <hr>
         <footer>
