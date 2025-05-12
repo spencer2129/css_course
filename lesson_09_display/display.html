@@ -45,19 +45,49 @@
 
                     <dl>
                         <dt><code>flow</code></dt>
+                        <dd>It generates a block box unless its outer display type is inline</dd>
 
                         <dt><code>flow-root</code></dt>
+                        <dd>The element generates a block box that establishes a new block formatting context</dd>
 
                         <dt><code>table</code></dt>
+                        <dd>These elements behave like HTML <code>&lt;table&gt;</code> elements, and it defines a block=level box</dd>
 
                         <dt><code>flex</code></dt>
+                        <dd>The element behaves like a block-level element and lays out its content according to the flexbox model</dd>
 
                         <dt><code>grid</code></dt>
+                        <dd>The element behaves like a block-level element and lays out its content according to the grid model.</dd>
 
                         <dt><code>ruby</code></dt>
-                        
+                        <dd>The element behaves like an inline-level element and lays out its content according to the ruby formatting model.</dd>
+
                     </dl>
                     <p>NOTE: When browsers that support multi-keyword syntax encounter a display property that only has an inner value (e.g., <code>display: flex</code> or <code>display: grid</code>), the outer value is set to <code>block</code> (e.g., <code>display: block flex</code> and <code>display: block grid</code>).</p>
+                </section>
+
+                <section>
+                    <h3>List Item</h3>
+                    <p>The element generates a block box for the content and a separate list-item inline box. A value of <code>list-item</code> will cause the element to behave like a list item.</p>
+                </section>
+
+                <section>
+                    <h3>Precomposed</h3>
+                    <dl>
+                        <dt><code>inline-block</code></dt>
+                        <dd>The element generates a block box that will be flowed with surrounding content as if it were a single inline box. It is equivalent to <code>inline flow-root</code></dd>
+
+                        <dt><code>inline=table</code></dt>
+                        <dd>Behaves like an HTML <code>&lt;table&gt;</code> element, but as an inline box, rather than a block-level box. It is equivalent to <code>inline table</code></dd>
+
+                        <dt><code>inline-flex</code></dt>
+                        <dd>The element behaves like an inline-level element and lays out its content according to the flexbox model. It is equivalent to <code>inline flex</code></dd>
+
+                        <dt><code>inline-grid</code></dt>
+                        <dd>The element behaves like an inline-level element and lays out its content according to the grid model. It is equivalent to <code>inline grid</code></dd>
+
+                    </dl>
+
                 </section>
 
             </article>
