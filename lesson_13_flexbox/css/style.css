@@ -16,12 +16,22 @@ body {
     max-width: 800px;
     min-height: 400px;
     margin-inline: auto;
-    border: 1px solid #000;;
+    border: 1px solid #000;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    
+    /*flex-direction: row-reverse;
+    flex-wrap: wrap;
+    flex-flow: <flex-direction> <flex-wrap>*/
+    flex-flow: row wrap;
+    align-content: end;
+    align-items: center;
 }
 
 .box {
     min-width: 100px;
-    min-height: 100px;
+    height: 100px;
     background-color: #000;
     color: #fff;
     font-size: 2rem;
