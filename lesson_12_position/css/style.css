@@ -40,7 +40,7 @@ body {
     /* when you set absolute you need to set at least one - top, left, right, bottom*/
     position: absolute;
     top: 0;
-    left: 0;
+    left: 0px;
     z-index: 1;
 }
 
@@ -61,4 +61,62 @@ body {
     background-color: black;
     position: sticky;
     top: 0;
+}
+
+p a:visited {
+    color: purple;
+}
+
+/*   //////////     */
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    height: 100vh;
+}
+
+.blue {
+    background-color: #00f;
+}
+.red {
+    background-color: #f00;
+}
+.green {
+    background-color: green;
+}
+
+header, footer {
+    color: #fff;
+    text-align: center;
+    height: 100px; 
+}
+
+header {
+    position: sticky;
+    top: 0;
+    font-size: 5rem;
+}
+
+footer {
+    position: sticky;
+    background-color: #000;
+    bottom: 0;
+    font-size: 3rem;
+}
+
+a:visited {
+    color: #fff;
+}
+
+.social {
+    background-color: royalblue;
+    color: #fff;
+    font-size: inherit;
+    padding: 1rem;
+    position: fixed;
+    top: 30%;
+    left: 0;
+    z-index: 1;
 }
