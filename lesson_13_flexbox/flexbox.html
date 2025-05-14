@@ -14,7 +14,7 @@
             <nav>
                 <ul>
                     <li><a href="./">Back to Home</a></li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank">CSS Flexbos MDN Doc</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox" target="_blank">CSS Flexbox MDN Doc</a></li>
                 </ul>
             </nav>
         </header>
@@ -100,6 +100,125 @@
                     </section>
                     <section>
                         <h4>The flex-shrink property</h4>
+                        <p><code>flex-shrink</code> controls how the elements become smaller. If we do not have enough space in the container to lay out our items, and <code>flex-shrink</code> is set to a positive integer, then the item can become smaller than the <code>flex-basis</code>. Different items can have different values which will cause some items to shrink faster than others. An item can shrink down to its min-content size.</p>
+                    </section>
+                    <section>
+                        <h4>The flex shorthand</h4>
+                        <p>The <code>flex</code> shorthand allows you to combine <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> into one in the following order</p>
+                        <p><code>flex: &lt;flex-grow&gt; &lt;flex-shrink&gt; &lt;flex-basis&gt;</code></p>
+                    </section>
+                </section>
+                <section>
+                    <h3>Alignment, justification and distribution of free space between items</h3>
+                    <section>
+                        <h4><code>align-items</code></h4>
+                        <p>This property aligns all the flex items on the cross axis. The initial value for this property is <code>stretch</code> which is why flex items stretch to the h eight of the flex container by default. The following are the possible values for <code>align-items</code></p>
+
+                        <ul>
+                            <li><code>stretch</code></li>
+                            <li><code>flex-start</code></li>
+                            <li><code>flex-end</code></li>
+                            <li><code>start</code></li>
+                            <li><code>end</code></li>
+                            <li><code>center</code></li>
+                            <li><code>baseline</code></li>
+                            <li><code>last baseline</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4><code>justify-content</code></h4>
+                        <p>This property is used to align the items on the main axis, the direction in which <code>flex-direction</code> has set the flow. The following are the possible values for <code>justify-content</code></p>
+                        <ul>
+                            <li><code>start</code></li>
+                            <li><code>end</code></li>
+                            <li><code>left</code></li>
+                            <li><code>right</code></li>
+                            <li><code>normal</code></li>
+                            <li><code>flex-start</code></li>
+                            <li><code>flex-end</code></li>
+                            <li><code>center</code></li>
+                            <li><code>space-around</code></li>
+                            <li><code>space-between</code></li>
+                            <li><code>space-evenly</code></li>
+                            <li><code>stretch</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h4><code>justify-items</code></h4>
+                        <p>The <code>justify-items</code> property is <strong>ignored</strong> in flexbox layouts.</p>
+                    </section>
+                    <section>
+                        <h4><code>place-items</code> and <code>place-content</code></h4>
+                        <p><code>place-items: &lt;align-items&gt; &lt;justify-items&gt;</code></p>
+                        <p><code>place-content: &lt;align-content&gt; &lt;justify-content&gt;</code></p>
+                        <p><mark>The <code>align-content</code> property only affects flex containers that wrap.</mark></p>
+                    </section>
+                </section>
+            </article>
+
+            <article>
+                <h2>Relationship of flexbox to other layout methods</h2>
+                <section>
+                    <h3>Flexbox and grid layout</h3>
+                    <p>Flexbox is a one dimensional layout method whereas grid layout is a two dimensional layout method. Flex items are allowed to wrap but, once they do, each line behaves as if it were a flex container of its own. When space is distributed, flexbox does not look at the placemenet of items in other rows and tries to line things up with each other. In grid we can control the layout in both rows and columns</p>
+                    <p>In grid layout, you do the majority of sizing specification on the container, setting up tracks and then placing items into them. In flexbox, while you create a flex container and set the direction at that level, any control over item sizing needs to happen on the items themselves!</p>
+                    <p>As a general rule, if you are setting widths on felx items to make items in one row of a wrapped flex container line up with items above them, you should instead opt for a two-dimensional grid layout!</p>
+                </section>
+                <section>
+                    <h3>Flexbox and other layout methods</h3>
+                    <p>If an item was floated or cleared and the becomes flex item due to the parent having <code>display: flex</code> applied, the floating and clearing will no longer happen, and the item will not be taking out of normal flow in the way that floats are.</p>
+                    <p>If you have used the <code>vertical-align</code> property, as used with <code>inline-block</code> or table layout alignments, this will no longer affect the item and you can use the alignment properties of flexbox instead.</p>
+                </section>
+                <section>
+                    <h3>Flexbox and display: contents</h3>
+                    <p><code>display: contents</code> is described as follows</p>
+                    <blockquote>
+                        "The element itself does not generate any boxes, but its children and pseudo-elements still generate boxes as normal. For the purposes of box generation and layout, the element must be treated as if it has been replaced with its children and pseudo-elements in the document tree"
+                    </blockquote>
+                    <p>Image we have a clox container with three flex items. One has two elements nested inside, which would not participate in flex layout because flex layout only applies to direct children of a flex container. When we add <code>display: contents</code> to the one element that is a wrapper around nested elements, the wrapper seems to disappear from the layout, allowing the two sub-children to be laid out as if they were direct children of the flex container.</p>
+                    <p>Note that this only removes the box from the layout; the sub-children don't become direct children of the flex container.</p>
+                </section>
+            </article>
+
+            <article>
+                <h2>Aligning items in a flex container</h2>
+                <section>
+                    <h3>Using alignment in flexbox</h3>
+                    <p>Flexbox provides several properties to control alignment and spacing, with <code>align-items</code> and <code>justify-content</code> being fundamental for centering elements.</p>
+                </section>
+                <section>
+                    <h3>Properties for controlling alignment in flexbox</h3>
+                    <ul>
+                        <li><code>justify-content</code>: Controls the alignment of all items on the main axis</li>
+                        <li><code>align-items</code>: Controls the alignment of all items on the cross axis.</li>
+                        <li><code>align-self</code>: Controls the alignment of an individual flex item on the cross axis.</li>
+                        <li><code>align-content</code>: Controls the sapce between flex lines on the cross axis</li>
+                        <li><code>gap</code>, <code>column-gap</code>, and <code>row-gap</code>: Used to create gaps or gutters between flex items.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Aligning items on the cross axis</h3>
+                    <p>The <code>align-items</code> property, set on the flex container, and the <code>align-sefl</code> property, set on the flex items, control the alignment of lex items on the cross axis. The cross axis runs down the columns if <code>flex-direction: row</code> and along the rows if <code>flex-direction: column</code>.</p>
+                    <p>By default, the items will stretch to match the height of the tallest item, as that item defines the height of the items on the cross axis. If the flex container has a height set, the items will stretch to that height, regardless of how much content is in each item.</p>
+
+                    <section>
+                        <h4>Aligning one item with <code>align-self</code></h4>
+                        <p>The <code>align-items</code> property sets the <code>align-self</code> property on all of the flex items as a group. You can explicitly delcare the <code>align-self</code> property to target a single item.</p>
+                    </section>
+                </section>
+                <section>
+                    <h3>Aligning content on the cross axis with the <code>align-content</code> property</h3>
+                    <p><mark>When the flex items are allowed to wrap across multiple lines, the <code>align-content</code> property can be used to control the distribution of space between the lines.</mark></p>
+                </section>
+                <section>
+                    <h3>Aligning content on the main axis</h3>
+                    <p>Now that we have seen how alingment works on the cross axis with <code>align-items</code> and <code>align-content</code>, we can take a look at the main axis.  <mark>Here we only have one property available -- <code>justify-content</code>. This is because we are only dealing with items as a group on the main axis. </mark>With <code>justify-content</code> we control what happens with available space, should there be more space than is needed to display the items.</p>
+
+                    <section>
+                        <h4>Alignment and writing modes</h4>
+                        <p>With all these alignment methods, the values of <code>start</code> and <code>end</code> are writing mode-aware. If the value of <code>justify-content</code> is <code>start</code> and the writing mode is left-to-right, as in English, the items will align starting at the left side of the container.</p>
+                        <p>However if the writing mode is right-to-left as in Arabic, the items will line up starting at the right side of the container.</p>
+                        <p>To change the writing mode, set the <code>direction</code> property value to <code>rtl</code> to force a right-to-left flow, or set to <code>ltr</code> for left-to-right flow.</p>
                     </section>
                 </section>
             </article>
