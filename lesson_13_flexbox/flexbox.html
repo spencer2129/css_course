@@ -19,7 +19,91 @@
             </nav>
         </header>
 
-        <main></main>
+        <main>
+            <article>
+                <h2>Basic concepts of flexbox</h2>
+                <p>The flexible box layout module, also referred to as flexbox, is a one-dimensional layout model for distributing space between items and includes numerous alignment capabilities. Flexbox deals with layout in one dimension at a time, either as a row or as a column. This can be contrasted with the two-dimensional model of grid layout, which controls columns and rows together. Even when flex items are allowed to wrap, each line behaves as if it were a flex container of its own.</p>
+
+                <section>
+                    <h3>The two axes of flexbox</h3>
+                    <p>Flexbox has two axes, the main axis and the cross axis.  The main axis is defined by the <code>flex-direction</code> property, and the cross axis runs perpendicular to it.</p>
+
+                    <article>
+                        <h4>The main axis</h4>
+                        <p>The main axis is defined by <code>flex-direction</code>, which has four possible values:</p>
+                        <ul>
+                            <li><code>row</code></li>
+                            <li><code>row-reverse</code></li>
+                            <li><code>column</code></li>
+                            <li><code>column-reverse</code></li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h4>The cross axis</h4>
+                        <p>The cross axis runs perpendicular to the main axis. If your <code>flex-direction</code> (main axis) is set to <code>row</code> or <code>row-reverse</code> the cross axis runs down the columns. If your main axis is <code>column</code> or <code>column-reverse</code> then the cross axis runs along the rows.</p>
+                    </article>
+                </section>
+
+                <section>
+                    <h3>Start and end lines</h3>
+                    <p>Flexbox makes no asumption about the writing mode of the document. Flexbox doesn't assume all lines of text start at the top left of a document and run towers the right-hand side.</p>
+                    <p>For example, if the <code>flex-direction</code> and I am working in English, then the start edge of the main axis will be on the left, and the end edge on the rigth. If I were to work in Arabic, the start edge of my main axis would be on the right and the end edge on the left.</p>
+                </section>
+                
+                <section>
+                    <h3>The flex container</h3>
+                    <p>The flex container is an area of a document that is laid out using flexbox. To create a flex container, set the area's <code>display</code> property to <code>flex</code>. This causes the direct children of that container to become flex items.</p>
+
+                    <section>
+                        <h4>Initial Values</h4>
+                        <ul>
+                            <li>Items display in a row(the <code>flex-direction</code> property's default value is <code>row</code></li>
+                            <li>Items start from the start edge of the main axis</li>
+                            <li>The items do not stretch on the main dimension but can shrink (a flex-item's <code>flex-grow</code> property's default value is <code>0</code> and its <code>flex-shrink</code> property's default value is <code>1</code>)</li>
+                            <li>The items will stretch to fill the size of the cross-axis (the <code>align-items</code> property's default value is <code>stretch</code>)</li>
+                            <li>The flex-item's <code>flex-basis</code> property's default value is <code>auto</code>. This means that it will be equal to the flex item <code>width</code> and <code>height</code></li>
+                            <li>All the items will be in a single row (the <code>flex-wrap</code> property's value is <code>nowrap</code>), overflowing their container if their combined width/height exceeds the containin element width/heigth</li>
+
+                            <p>In summary, your items will all line up in a row, using the size of the content as their size in the main axis. If there are more items that can fit in the container, they will not wrap but will instead overflow.</p>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>Multi-line flex containers with flex-wrap</h3>
+                    <p>Although flexbox is a one dimensional model, it is possible to make flex items wrap across multiple lines. <mark>If you do this, you should consider each line as a new felx container. Any space distribution will happen across each line, without reference to the previous or subsequent lines.</mark></p>
+                    <p>To cause wrapping behavior add the property <code>flex-wrap: wrap</code>.</p>
+                </section>
+                <section>
+                    <h3>The flex-flow shorthand</h3>
+                    <p>You can combine the two properties <code>flex-direction</code> and <code>flex-wrap</code> into the <code>flex-flow</code> shorthand</p>
+                    <p><code>flex-flow: &lt;flex-direction&gt; &lt;flex-wrap&gt;</code></p>
+                </section>
+                <section>
+                    <h3>Properties applied to flex item</h3>
+                    <ul>
+                        <li><code>flex-grow</code></li>
+                        <li><code>flex-shrink</code></li>
+                        <li><code>flex-basis</code></li>
+                    </ul>
+                    <section>
+                        <h4>The flex-basis property</h4>
+                        <p>Defines the size of that item in terms of the space it leaves as available space. The initial value of this property is <code>auto</code> -- in this case the browser looks to see if the item has a size. If the items have a width of 100pixels, then that size is used as the <code>flex-basis</code>.</p>
+                        <p>If the item doesn't have a size then the content's size is used as the <code>flex-basis</code>.</p>
+                    </section>
+                    <section>
+                        <h4>The flex-grow property</h4>
+                        <p>When the <code>flex-grow</code> property is set to a positive integer, if there is available space, the flex item can grow along the main axis from its <code>flex-basis</code>. Whether the item stretches to take up all the available space on the axis, or just a portion of the space depends on if the other items are allowed to grow too and the value of their <code>flex-grow</code> properties</p>
+                        
+                        <p>For example, if we gave all of our items a <code>flex-grow: 1</code> then the available space in the flex container would be equally shared between our items and they would stretch to fill the container on the main axis.</p>
+                        <p>On the other hand, if we have one of our items <code>flex-grow: 2</code>, and the rest a value of 1, then the item with a value of 2 will grow twice as fast as the other items.</p>
+                    </section>
+                    <section>
+                        <h4>The flex-shrink property</h4>
+                    </section>
+                </section>
+            </article>
+        </main>
         <hr>
         <footer>
             <p>Copyright &copy; Spencer Aranda</p>
