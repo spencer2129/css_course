@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spencer Aranda">
+        <meta name="description" content="Lesson 14 CSS Grid">
+        <title>CSS Grid</title>
+        
+    </head>
+    <body>
+        <header>
+            <h1>Relationship of grid layout to other layout methods</h1>
+        </header>
+        <main>
+            <article>
+                <p>CSS grid layout is designed to work alongside other parts of CSS, as part of a complete system for doing the layout.</p>
+
+                <h2>Grid and flexbox</h2>
+                <p>The basic difference is that flexbox was designed for layout in one dimension, either a row or a column. Grid was designed for two dimensional layout, rows, and columns at the same time. The two specifications both use box alignment features.</p>
+                <pre><code>
+                    HTML
+                    &lt;div class="wrapper"&gt;
+                        &lt;div&gt;One&lt;/div&gt;
+                        &lt;div&gt;Two&lt;/div&gt;
+                        &lt;div&gt;Three&lt;/div&gt;
+                        &lt;div&gt;Four&lt;/div&gt;
+                        &lt;div&gt;Five&lt;/div&gt;
+                    &lt;/div&gt;
+
+                    CSS
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    .wrapper {
+                        border-radius: 5px;
+                        border: #d9480f 2px solid;
+                        background-color: #fff4e6;
+                        width: 500px;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                      
+                    .wrapper > div {
+                        border: 2px solid #ffa94d;
+                        border-radius: 5px;
+                        background-color: #ffd8a8;
+                        padding: 1em;
+                        color: #d9480f;
+                        flex: 1 1 150px;  
+                    }
+                </code></pre>
+                <p>In the example above, two items have wrapped onto a new line. These items are sharing the avaiable space and not lining up underneath the items above. <mark>This is because when you wrap flex items, each new row (or column when working by column) is an independent flex line in the flex container.</mark> Space distribution happens across the flex line.</p>
+                <p>A common question then is how to make those items line up. This is where you want a two-dimensional layout method: You want to control the alignment by row and column, and this is where grid comes in.</p>
+            </article>
+            <article>
+                <h2>Grid and absolutely positioned elements</h2>
+            </article>
+            <article>
+                <h2>Grid and display: contents</h2>
+            </article>
+        </main>
+    </body>
+</html>
