@@ -177,6 +177,16 @@
             </article>
             <article>
                 <h2>Nesting grids</h2>
+                <p>A grid item can become a grid container.</p>
+                <p>You can set <code>display: grid</code> on any of the grid cells and the cell will become a grid too. The nested items will layout on this new grid. However the nested grid has no relationship to the parent. It does not inherit the gap of the parent and the lines in the nested grid do not align to the lines in the parent grid</p>
+                <p>In addition to regular grids, we can create subgrid. The <code>subgrid</code> value lets us create nested grids that use the track definition of the parent grid.</p>
+                <p><code>grid-template-columns: subgrid</code></p>
+                <p><code>grid-template-rows: subgrid</code></p>
+            </article>
+            <article>
+                <h2>Layering items with z-index</h2>
+                <p>Grid items can occupy the same cell, and in this case we can use the <code>z-index</code> property to control the order in which overlapping items stack.</p>
+                <p>In a grid example, lets stay box2 is overlapping box1 because the element comes later in the source order. By giving box2 a lower <code>z-index</code> than box1, it will display below box1 in the stack even though the element has later in the source order.</p>
             </article>
         </main>
         <hr>
