@@ -18,42 +18,77 @@
 
                 <h2>Grid and flexbox</h2>
                 <p>The basic difference is that flexbox was designed for layout in one dimension, either a row or a column. Grid was designed for two dimensional layout, rows, and columns at the same time. The two specifications both use box alignment features.</p>
-                <pre><code>
-                    HTML
-                    &lt;div class="wrapper"&gt;
-                        &lt;div&gt;One&lt;/div&gt;
-                        &lt;div&gt;Two&lt;/div&gt;
-                        &lt;div&gt;Three&lt;/div&gt;
-                        &lt;div&gt;Four&lt;/div&gt;
-                        &lt;div&gt;Five&lt;/div&gt;
-                    &lt;/div&gt;
 
-                    CSS
-                    * {
-                        margin: 0;
-                        padding: 0;
-                        box-sizing: border-box;
-                    }
-                    .wrapper {
-                        border-radius: 5px;
-                        border: #d9480f 2px solid;
-                        background-color: #fff4e6;
-                        width: 500px;
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
-                      
-                    .wrapper > div {
-                        border: 2px solid #ffa94d;
-                        border-radius: 5px;
-                        background-color: #ffd8a8;
-                        padding: 1em;
-                        color: #d9480f;
-                        flex: 1 1 150px;  
-                    }
-                </code></pre>
-                <p>In the example above, two items have wrapped onto a new line. These items are sharing the avaiable space and not lining up underneath the items above. <mark>This is because when you wrap flex items, each new row (or column when working by column) is an independent flex line in the flex container.</mark> Space distribution happens across the flex line.</p>
-                <p>A common question then is how to make those items line up. This is where you want a two-dimensional layout method: You want to control the alignment by row and column, and this is where grid comes in.</p>
+                <section>
+                    <h3>Flexbox layout example</h3>
+                    <pre><code>
+                        HTML
+                        &lt;div class="wrapper"&gt;
+                            &lt;div&gt;One&lt;/div&gt;
+                            &lt;div&gt;Two&lt;/div&gt;
+                            &lt;div&gt;Three&lt;/div&gt;
+                            &lt;div&gt;Four&lt;/div&gt;
+                            &lt;div&gt;Five&lt;/div&gt;
+                        &lt;/div&gt;
+
+                        CSS
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        .wrapper {
+                            border-radius: 5px;
+                            border: #d9480f 2px solid;
+                            background-color: #fff4e6;
+                            width: 500px;
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                        
+                        .wrapper > div {
+                            border: 2px solid #ffa94d;
+                            border-radius: 5px;
+                            background-color: #ffd8a8;
+                            padding: 1em;
+                            color: #d9480f;
+                            flex: 1 1 150px;  
+                        }
+                    </code></pre>
+                    <p>In the example above, two items have wrapped onto a new line. These items are sharing the avaiable space and not lining up underneath the items above. <mark>This is because when you wrap flex items, each new row (or column when working by column) is an independent flex line in the flex container.</mark> Space distribution happens across the flex line.</p>
+                    <p>A common question then is how to make those items line up. This is where you want a two-dimensional layout method: You want to control the alignment by row and column, and this is where grid comes in.</p>
+                </section>
+                <section>
+                    <h3>Same layout with Grid</h3>
+                    <pre><code>
+                        .wrapper {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                          }
+                    </code></pre>
+                    <p>In this example we have three <code>1fr</code> column tracks. We do not need to anything on the items themseves; they will lay themselves out one into each cell of the created grid.</p>
+
+                    <p>Ask yourself</p>
+                    <aside>
+                        <details>
+                            <summary>Do we only need to control the layout by row or column?</summary>
+                            <p>If yes, use Flexbox</p>
+                        </details>
+                    </aside>
+                    <aside>
+                        <details>
+                            <summary>Do we need to control the layout by row and column?</summary>
+                            <p>If yes, use Grid layout</p>
+                        </details>
+                </section>
+                <section>
+                    <h3>Content out or layout in?</h3>
+                    <p>There is another way to decide if you should use flexbox or grid. Flexbox works from the content out. An ideal use case is when you have a set of items and want to space them out evenly in a container. You let the size of the content decide how much individual space each item takes up. On the other hand, grid works from the layout in.  When you use grid you create a layout and then place items into it, or you allow the auto-placement rules to place items into the grid cells.</p>
+                    <p><mark>If you're using flexbox and you find youself disabling some of the flexbility such as setting widths on a flex item to make it line up with other items in a row, a grid is likely a better choice.</mark></p>
+                </section>
+                <section>
+                    <h3>Box alignment</h3>
+                </section>
             </article>
             <article>
                 <h2>Grid and absolutely positioned elements</h2>
