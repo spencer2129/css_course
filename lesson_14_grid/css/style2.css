@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    border-radius: 5px;
+    border: #d9480f 2px solid;
+    background-color: #fff4e6;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    grid-auto-rows: 200px;
+    gap: 20px;
+}
+  
+.wrapper > div {
+    border: 2px solid #ffa94d;
+    border-radius: 5px;
+    background-color: #ffd8a8;
+    padding: 1em;
+    color: #d9480f; 
+}
+.box3 {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
