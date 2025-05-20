@@ -69,12 +69,57 @@
             </article>
             <article>
                 <h2>The <code>grid-area</code> property</h2>
-                <p>Instead of using <code>grid-column</code> and <code>grid-row</code>, we can define each area with a <code>grid-area</code></p>
+                <p>Instead of using <code>grid-column</code> and <code>grid-row</code>, we can define each area with a <code>grid-area</code> property</p>
+                <p>The order of the values is as follows: <code>grid-area: &lt;grid-row-start&gt; &lt;grid-column-start&gt; &lt;grid-row-end&gt; &lt;grid-column-end&gt;</code></p>
                 <p><pre><code>
                     .box1 {
                         grid-area: 1 / 1 / 4 / 2;
                       }
                 </code></pre></p>
+            </article>
+            <article>
+                <h2>Gutters or Alleys</h2>
+                <p>CSS grid includes the ability to adad gutterse between column and row tracks with the <code>column-gap</code> and <code>row-gap</code> properties. Gaps only appear between tracks of the grid, they do not add space to the top and bottom, left or right of the container. Anything starting at the line starts after the gap, and you cannot addres the gap or place anything into it.</p>
+                <p><pre><code>
+                    .wrapper {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-template-rows: repeat(3, 100px);
+                        column-gap: 20px;
+                        row-gap: 1em;
+                    }
+                </code></pre></p>
+                <section>
+                    <h3>The gap shorthand</h3>
+                    <p>The two gap properties can be expresed as a shorthand <code>gap</code></p>
+                    <p><code>gap: &lt;row-gap&gt; &lt;column-gap&gt;</code></p>
+                    <p><code>gap: 1em 20px;</code></p>
+                    <p>If you only give one value for <code>gap</code> it will apply to both column and row gaps.</p>
+                </section>
+            </article>
+            <article>
+                <h2>Using the <code>span</code> keyword</h2>
+                <p>In addition to specifying the start and end lines by number, you can specify the start line and then the number of tracks you would like the area to span using the <code>span</code> keyword.</p>
+                <p>The following examples create the same grid area. The area will start at line 1 and end 3 lines from line 1; that is, the area will end at line 4.
+                    <pre><code>
+                    .box1 {
+                        grid-column: 1;
+                        grid-row: 1 / span 3;
+                    }
+
+                    .box1 {
+                        grid-column-start: 1;
+                        grid-row-start: 1;
+                        grid-row-end: span 3;
+                    }
+
+                    .box1 {
+                        grid-column-start: 1;
+                        grid-row-start: span 3;
+                        grid-row-end: 4;
+                    }
+                </code></pre></p>
+                
             </article>
         </main>
         <hr>
