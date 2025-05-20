@@ -158,8 +158,13 @@
             </article>
             <article>
                 <h2>Grid and display: contents</h2>
-                
+                <p>When <code>display: contents</code> is set on an element, the element itself does not generate any boxes, but its children and pseudo-elements still generate boxes as normal. This means that, for the purpose of box generation and layout, the element is treated as if it had been replaced with its children and pseudo-elements in the document tree.</p>
+                <p>if you set <code>display: contents</code>, the box it would normally create disappears and the boxes of the child elements appear as if they would have risen up a level.</p>
             </article>
         </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
     </body>
 </html>
