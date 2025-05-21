@@ -60,6 +60,51 @@
             </article>
             <article>
                 <h2>The order of auto placed items</h2>
+                <section>
+                    <h3>Order modified document order</h3>
+
+                </section>
+                <section>
+                    <h3>Items with placement properties</h3>
+                    <p>Items with placement properties such as <code>grid-column</code> and <code>grid-row</code> will be first placed, and then the other tiems will be auto-place in the spaces.</p>
+                </section>
+                <section>
+                    <h3>Deal with items that span tracks</h3>
+                    <p>You can use placement properties while still taking advatange of auto-placement by using span with <code>grid-column-end</code> and/or <code>grid-row-end</code>. This would mean that the start line of the item will be set by auto placement, and the end line will span for however many tracks you want.</p>
+                    <p><pre><code>
+                        .wrapper {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-auto-rows: 100px;
+                            gap: 10px;
+                          }
+                          .wrapper div:nth-child(4n + 1) {
+                            grid-column-end: span 2;
+                            grid-row-end: span 2;
+                            background-color: #ffa94d;
+                        }
+                    </code></pre></p>
+                </section>
+                <section>
+                    <h3>Filling in the gaps</h3>
+                    <p>The grid is always progressing forward and keeping things in DOM order and sometimes leaves gaps if there is no element that would fit there. When we lay things out that don't have a logical order and we would like to create a layout that doesn't have gaps in it. To do this use property <code>grid-auto-flow</code> with value of <code>dense</code> to the container. for example <code>grid-auto-flow: column dense</code></p>
+                    <p>Having done this, grid will not backfill the gaps, as it moves through the grid it leaves gaps as before, but then if it finds an item that will fit in the previous gap it will pick it up and take it out of DOM order to place it in a the gap.</p>
+                </section>
+                <section>
+                    <h3>Anonymous grid items</h3>
+                    <p>These are created if you have a string of text inside your grid container that is not wrapped in any other element. The anonymous items will always be dealt with via the auto-placement rules.</p>
+                    <p><pre><code>
+                        &lt;div class="grid"&gt;
+                            I am a string and will become an anonymous item
+                            &lt;div&gt;A grid item&lt;/div&gt;
+                            &lt;div&gt;A grid item&lt;/div&gt;
+                        &lt;/div&gt;
+                    </code></pre></p>
+                </section>
+                <section>
+                    <h3>Use cases for auto-placement</h3>
+                    <p><mark>Auto-placement is useful whnever you have a collection of items. That could be items that do not have a logical order such as a gallery of photos, or product listing.</mark> In that case you might choose to use the dense packing mode to fill in any holes in your grid.</p>
+                </section>
             </article>
         </main>
         <hr>
