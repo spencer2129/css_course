@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Spencer Aranda">
+        <meta name="description" content="Lesson 14 CSS Grid">
+        <title>CSS Grid</title>
+    </head>
+    <body>
+        <header>
+            <h1>Aligning items in CSS grid layout</h1>
+            <p>CSS grid layout implements CSS box alignment, which is the same standard flexbox uses.</p>
+        </header>
+        <main>
+            <article>
+                <h2>The two axes of a grid layout</h2>
+                <p>When working with grid layout you have two axes available to align things against - the <em>block axis</em> and the <em>inline axis</em>.</p>
+                <p><mark>The block axis is the axis upon which blocks are laid out in block layout, meaning one below the other.</mark> If you have two paragraphs on your page they display one below the other, so it is this direction described as the block axis.</p>
+                <p><mark>The inline axis runs across the block axis, it is the direction in which text in regular inline flow runs.</mark></p>
+            </article>
+            <article>
+                <h2>Aligning items on the block axis</h2>
+                <ul>
+                    <li><code>align-self</code></li>
+                    <li><code>align-items</code></li>
+                </ul>
+                <p>These two properties above control alignment on the block axis of items within the grid.</p>
+
+                <section>
+                    <h3>Using align-items</h3>
+                    <p>Controls alignment on the block axis. The values include</p>
+                    <ul>
+                        <li><code>normal</code></li>
+                        <li><code>stretch</code></li>
+                        <li><code>start</code></li>
+                        <li><code>end</code></li>
+                        <li><code>center</code></li>
+                        <li><code>baseline</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Using align-self</h3>
+                    <p>This property is set up in a grid cell or grid item, not in the grid container as would be the case for <code>align-items</code>. The values are the same as values of the <code>align-items</code> property.</p>
+                </section>
+                <section>
+                    <h3>Items with an intrinsic aspect ratio</h3>
+                    <p>The default behavior for <code>align-self</code> is to inherit from the grid container's <code>align-items</code> property, for which the <code>normal</code> default is to stretch, except for items which have an intrinsic aspect ration, in this case they behave as <code>start</code>. The reason for this, is that if items with an aspect ratio are made to stretch, they would be distorted</p>
+                </section>
+            </article>
+            <article>
+                <h2>Justifying items on the inline axis</h2>
+                <ul>
+                    <li><code>justify-items</code></li>
+                    <li><code>justify-self</code></li>
+                </ul>
+                <p>These properties align items on the inline axis. The values include</p>
+                <ul>
+                    <li><code>normal</code></li>
+                    <li><code>start</code></li>
+                    <li><code>end</code></li>
+                    <li><code>left</code></li>
+                    <li><code>right</code></li>
+                    <li><code>center</code></li>
+                    <li><code>stretch</code></li>
+                    <li><code>baseline</code></li>
+                </ul>
+            </article>
+            <article>
+                <h2>Center an item in the area</h2>
+            </article>
+            <article>
+                <h2>Aligning the grid tracks on the block axis</h2>
+            </article>
+            <article>
+                <h2>Justfying the grid tracks on the inline axis</h2>
+            </article>
+            <article>
+                <h2>Alignment and auto margins</h2>
+            </article>
+            <article>
+                <h2>Alignment and writing modes</h2>
+            </article>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+    </body>
+</html>
