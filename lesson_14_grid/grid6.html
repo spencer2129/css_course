@@ -6,14 +6,53 @@
         <meta name="author" content="Spencer Aranda">
         <meta name="description" content="Lesson 14 CSS Grid">
         <title>CSS Grid</title>
-        <link rel="stylesheet" href="./css/style2.css">
     </head>
     <body>
-        <div class="wrapper">
-            <div class="box1">One</div>
-            <div class="box2">Two</div>
-            <div class="box3">Three</div>
-            <div class="box4">Four</div>
-        </div>
+        <header>
+            <h1>Auto-placement in grid layout</h1>
+            <p>CSS grid layout contains rules that control what ahppens when you create a grid and do not explicitly place some or all of the child items within the grid. When you don't need explicit control over content placement, this "auto-placement" is the simplest way of creating a grid for a set of items.</p>
+        </header>
+        <main>
+            <article>
+                <h2>Default placement</h2>
+                <p>If you don't give the items placement information, they automatically position themselves on the grid, placing one grid item in each cell.</p>
+            </article>
+            <article>
+                <h2>Default rules for auto-placement</h2>
+                <p>If you create a grid without placing any items, the child items will lay themselves out with one grid item in each grid cell in source-code order. <mark>The default flow is to arrage items by row.</mark> Grid will lay an item out in each cell of the first row. If you have created additional rows using the <code>grid-template-rows</code> property, then grid will continue placing items in these rows. <mark>If the grid does not have enough rows in the explicit grid to place all of the items new implicit rows will be created.</mark></p>
+
+                <section>
+                    <h3>Sizing rows in the implicit grid</h3>
+                    <p><mark>The default for automatically created rows in the implicit grid is for them to be auto-sized.</mark> This means that they will size themselves to according the content added to them without causing an overflow.</p> 
+                    <p><mark>The size of the rows can be controlled using the property <code>grid-auto-rows</code></mark></p>
+                </section>
+                <section>
+                    <h3>Sizing rows using minmax()</h3>
+                    <p>By setting <code>grid-auto-rows: minmax(100px, auto);</code> we set each row to be at least 100px tall, while allowing each row to be as tall as needed.</p>
+                </section>
+                <section>
+                    <h3>Sizing rows using a track listing</h3>
+                    <p><pre><code>
+                        .wrapper {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 10px;
+                            grid-auto-rows: 100px 200px;
+                          }
+                    </code></pre></p>
+                    <p>This example will create an initial implicit row track as 100 pixels and a second as 200 pixels. This patter will continue to repeat for as long as content is added to the implicit grid.</p>
+                </section>
+                <section>
+                    <h3>Auto-placement by column</h3>
+                </section>
+            </article>
+            <article>
+                <h2>The order of auto placed items</h2>
+            </article>
+        </main>
+        <hr>
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
     </body>
 </html>
