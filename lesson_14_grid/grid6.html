@@ -44,6 +44,18 @@
                 </section>
                 <section>
                     <h3>Auto-placement by column</h3>
+                    <p><mark>You can have grid auto-place items by column by using the property <code>grid-auto-flow</code> with value of <code>column</code>.</mark></p>
+                    <p>As with implicit row tracks, these column tracks will be auto sized, but you can control the size of the implicit column tracks with <code>grid-auto-columns</code>.</p>
+                    <p>In this example we have a grid with three 200px high row tracks. We declare <code>grid-auto-flow: column;</code> to auto-place by column. With <code>grid-auto-columns: 300px 100px;</code>, the columns created will alternate between being 300px wide and 100px wide until there are enough column tracks to hold all of the items.</p>
+                    <p><pre><code>
+                        .wrapper {
+                            display: grid;
+                            grid-template-rows: repeat(3, 200px);
+                            gap: 10px;
+                            grid-auto-flow: column;
+                            grid-auto-columns: 300px 100px;
+                        }
+                    </code></pre></p>
                 </section>
             </article>
             <article>
