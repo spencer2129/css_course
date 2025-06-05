@@ -19,18 +19,150 @@
 
                 <section>
                     <h3><code>background-image</code></h3>
+                    <p>Sets one or more background images on an element. The background images are drawn on stacking context layers on top of each other. <mark>The first layer specified is drawn as if it is closest to the user.</mark></p>
+                    <p>
+                        <pre><code>
+                            /* single image */
+                            background-image: linear-gradient(black, white);
+                            background-image: url("cat-front.png");
+
+                            /* multiple images */
+                            background-image:
+                            radial-gradient(circle, #0000 45%, #000f 48%),
+                            radial-gradient(ellipse farthest-corner, #fc1c14 20%, #cf15cf 80%);
+                        </code></pre>
+                    </p>
                 </section>
 
                 <section>
                     <h3><code>background-repeat</code></h3>
+                    <p>Sets how the background images are repeated. A background image can be repeated along the horizontal and vertical axes, or not repeated at all.</p>
+                    <p>
+                        Values
+                        <dl>
+                            <dt><code>repeat</code></dt>
+                            <dd>Default value. The image is repeated as many times as needed to cover the entire background image painting area, with the edge image being clipped if the dimension of the painting area is not a multiple of the dimention of your background image.</dd>
+
+                            <dt><code>no-repeat</code></dt>
+                            <dd>The image is not repeated</dd>
+
+                            <dt><code>space</code></dt>
+                            <dd>The image is repeated as much as possible without clipping. The first and last images are pinned to either side of the element, and white space is distributed evenly between the images</dd>
+
+                            <dt><code>round</code></dt>
+                            <dd>As the allowed space increases in size, the repeated images will stretch until there is no room for another one to be added. This can lead to distortion of the background image</dd>
+
+                            <dt><code>repeat-x</code></dt>
+                            <dd>Shorthand for <code>repeat no-repeat</code>, the background image repeats horizontally only</dd>
+
+                            <dt><code>repeat-y</code></dt>
+                            <dd>Shorthand for <code>no-repeat repeat</code>, the background image repeats vertically only.</dd>
+                        </dl>
+                    </p>
+                    <p>
+                        <pre><code>
+                            /* Keyword values */
+                            background-repeat: repeat;
+                            background-repeat: repeat-x;
+                            background-repeat: repeat-y;
+                            background-repeat: space;
+                            background-repeat: round;
+                            background-repeat: no-repeat;
+
+                            /* Two-value syntax: horizontal | vertical */
+                            background-repeat: repeat space;
+                            background-repeat: repeat repeat;
+                            background-repeat: round space;
+                            background-repeat: no-repeat round;
+
+                            /* Multiple images */
+                            .seven {
+                            background-image:
+                                url(star-solid.gif), url(/shared-assets/images/examples/favicon32.png);
+                            background-repeat: repeat-x, repeat-y;
+                            height: 144px;
+                            }
+                        </code></pre>
+                    </p>
                 </section>
 
                 <section>
                     <h3><code>background-position</code></h3>
+                    <p>Sets the initial position for each background image. The position is relative to the position layer set by <code>background-origin</code></p>
+
+                    <p>
+                        <pre><code>
+                            /* Keyword values */
+                            background-position: top;
+                            background-position: bottom;
+                            background-position: left;
+                            background-position: right;
+                            background-position: center;
+
+                            /* &lt;percentage&gt; values */
+                            background-position: 25% 75%;
+
+                            /* &lt;length&gt; values */
+                            background-position: 0 0;
+                            background-position: 1cm 2cm;
+                            background-position: 10ch 8em;
+
+                            /* Multiple images */
+                            background-position:
+                            0 0,
+                            center;
+
+                            /* Edge offsets values */
+                            background-position: bottom 10px right 20px;
+                            background-position: right 3em bottom 10px;
+                            background-position: bottom 10px right;
+                            background-position: top right 10px;
+                        </code></pre>
+                    </p>
+                    <p>1-value syntax
+                        <ul>
+                            <li><code>center</code> which centers the image</li>
+                            <li>One of the keyword values <code>top</code>, <code>left</code>, <code>bottom</code>, <code>rigth</code>. This specifies an edge against which to place the item. The other dimension is then set to 50% so the item is placed in the middle of the edge specified</li>
+                            <li>A length or percentage, which will specify the X coordinate relative to the left edge with the Y coordinate by default set to 50%.</li>
+                        </ul>
+                    </p>
+                    <p>2-value syntax: One value defines X and the other defines Y
+                        <ul>
+                            <li>Values of <code>left</code> and <code>right</code> can only define X. Values of <code>top</code> and <code>bottom</code> can only define Y</li>
+                            <li>Length and percentages. If no keyword values, then the first value defines X and the second value defines Y</li>
+                        </ul>
+                    </p>
+                    <p>
+                        3-value syntax: Two values are keyword values, and the third is the offset for the preceding value
+                        <ul>
+                            <li>The lengh or percentage value, if it is the second value, is the offset for the first value. If it is the third value, it is the offset for the second value.</li>
+                        </ul>
+                    </p>
+                    <p>4-value syntax: The first and third values are keyword values defining X and Y. The second and fourth values are offsets for the preceding X and Y keyword values</p>
+                    <p>The percentage offset of the given background image's position is relative to the container. A value of 0% means that the left or top edge of the background image is aligned with the corresponding left or top edge of the container. A value of 100% means that the right or bottom edge of the background image is aligned with the right or bottom edge of the container, or the 100% mark of the iamge will be on the 100% mark of the container. <mark>Thus a value of 50% horizontally or vertically centers the background image as the 50% of the image will be at the 50% mark of the container.</mark> Similarly, <code>background-position: 25% 75%</code> means the spot on the image that is 25% from the left and 75% from the top will be placed at the spot of the container that is 25% from the container's left and 75% from the container's top.</p>
                 </section>
 
                 <section>
                     <h3><code>background-size</code></h3>
+                    <p>Sets the size of the element's background image. The image can be left to its natural size, stretched or constrained to fit the available space.</p>
+                    <p>Spaces not covered by a background image are filled with the <code>background-color</code> property, and the background color will be visible behind background iamges that have transparency/translucency.</p>
+                    <p>The <code>background-size</code> property is specified in one of the following ways:</p>
+                    <ul>
+                        <li>Using keyword values <code>contain</code> or <code>cover</code></li>
+                        <li>Using a width value only, in which case the height defaults to <code>auto</code></li>
+                        <li>Using both a width and a height value, in which case the first sets the width and the second sets the heigh. Each value can be a length, a percentage or <code>auto</code></li>
+                    </ul>
+                    <p>Values</p>
+                    <dl>
+                        <dt><code>contain</code></dt>
+                        <dd>Scales the image as large as possible within its container without cropping or stretching the image. If container is larger than the image, this will result in image tiling unless the <code>background-repeat</code> property is set to <code>no-repeat</code></dd>
+
+                        <dt><code>cover</code></dt>
+                        <dd>Scales the image (while preserving its ratio) to the smallest possible size to fill the container (both its height and width completely cover the container), leaving no empty space. <mark>If the proportions of the background differ from the element, the image is cropped either vertically or horizontally.</mark></dd>
+
+                        <dt><code>auto</code></dt>
+                        <dd>Sales the background image in the corresponding direction such that its intrinsic proportions are maintained.</dd>
+                    </dl>
                 </section>
 
                 <section>
