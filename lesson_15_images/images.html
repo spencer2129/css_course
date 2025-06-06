@@ -290,12 +290,108 @@
                             .radial-gradient {
                                 background: radial-gradient(at 0% 30%, red 10px, yellow 30%, #1e90ff 50%);
                             }
+
+                            /* Sizing radial gradients*/
+
+                            /* closest-side for ellipses: the size is set by the distance from the starting point (center) to the closest side of the enclosing box */
+                            .radial-ellipse-side {
+                                background: radial-gradient(
+                                  ellipse closest-side,
+                                  red,
+                                  yellow 10%,
+                                  #1e90ff 50%,
+                                  beige
+                                );
+                            }
+
+                            /* farthest-corner for ellipses: sets the size of the gradient by the distance from the starting point to the farthest corner of the enclosing box from the starting point. */
+                            .radial-ellipse-far {
+                                background: radial-gradient(
+                                  ellipse farthest-corner at 90% 90%,
+                                  red,
+                                  yellow 10%,
+                                  #1e90ff 50%,
+                                  beige
+                                );
+                            }
+
+                            /* closest-side for circles: makes the circle's radius to be the distance between the center of the gradient and the closest side */
+                            .radial-circle-close {
+                                background: radial-gradient(
+                                  circle closest-side at 25% 75%,
+                                  red,
+                                  yellow 10%,
+                                  #1e90ff 50%,
+                                  beige
+                                );
+                            }
+
+                            /* lengh or percentage for ellipses: first value represents the horizontal radius, thse second the vertical radius. A percentage corresponds to the size of the box in that dimension. */
+                            .radial-ellipse-size {
+                                background: radial-gradient(
+                                  ellipse 50% 50px,
+                                  red,
+                                  yellow 10%,
+                                  #1e90ff 50%,
+                                  beige
+                                );
+                            }
+
+                            /* length for circles: the size is the size of the circle */
+                            .radial-circle-size {
+                                background: radial-gradient(circle 50px, red, yellow 10%, #1e90ff 50%, beige);
+                            }
+
+
+                            /* Stacked radial gradient */
+                            .stacked-radial {
+                                background:
+                                  radial-gradient(
+                                    circle at 50% 0,
+                                    rgb(255 0 0 / 50%),
+                                    rgb(255 0 0 / 0%) 70.71%
+                                  ),
+                                  radial-gradient(
+                                    circle at 6.7% 75%,
+                                    rgb(0 0 255 / 50%),
+                                    rgb(0 0 255 / 0%) 70.71%
+                                  ),
+                                  radial-gradient(
+                                      circle at 93.3% 75%,
+                                      rgb(0 255 0 / 50%),
+                                      rgb(0 255 0 / 0%) 70.71%
+                                    )
+                                    beige;
+                                border-radius: 50%;
+                            }
                         </code></pre>
                     </p>
                 </section>
 
                 <section>
                     <h3><code>conic-gradient</code></h3>
+                    <p>Creates an image consisting of a gradient with color transitions rotated around a center point (rather than radiating from the center)</p>
+                    <p>The conic-gradient syntax is similar to the radial-gradient, but the color-stops are placed around a gradient arc, the circumference of a circle, rather than on the gradient line emerging from the center of the gradient. The color stops are percentages or degress; absolute lengths are not valid.</p>
+                    <p>In radial gradient, the colors transition from the center of an ellipse, outward, in all directions. With conic gradients, the colors transition as if spun around the center of a circle, starting at the top and going clockwise.</p>
+
+                    <p>
+                        <pre><code>
+                            /* Basic conic gradient */
+                            .simple-conic {
+                                background: conic-gradient(red, blue);
+                            }
+                              
+                            /* Positioning the center: Like radial gradients, you can position the center of the conic gradient with keyterms, percentage, or absolute lengths, with the keyword "at" */
+                            .conic-gradient {
+                                background: conic-gradient(at 0% 30%, red 10%, yellow 30%, #1e90ff 50%);
+                            }
+
+                            /* Changing the angle: by default, the different color stops you specify are spaced equidistantly around the circle. You can position the starting angle of the conic gradient using the "from" keyword at the beginning followed by an angle or length. */
+                            .conic-gradient {
+                                background: conic-gradient(from 45deg, red, orange 50%, yellow 85%, green);
+                            }
+                        </code></pre>
+                    </p>
                 </section>
             </article>
         </main>
