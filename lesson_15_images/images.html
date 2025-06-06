@@ -150,7 +150,7 @@
                     <ul>
                         <li>Using keyword values <code>contain</code> or <code>cover</code></li>
                         <li>Using a width value only, in which case the height defaults to <code>auto</code></li>
-                        <li>Using both a width and a height value, in which case the first sets the width and the second sets the heigh. Each value can be a length, a percentage or <code>auto</code></li>
+                        <li><mark>Using both a width and a height value, in which case the first sets the width and the second sets the heigh. Each value can be a length, a percentage or <code>auto</code></mark></li>
                     </ul>
                     <p>Values</p>
                     <dl>
@@ -162,24 +162,136 @@
 
                         <dt><code>auto</code></dt>
                         <dd>Sales the background image in the corresponding direction such that its intrinsic proportions are maintained.</dd>
+
+                        <dt><code>&lt;length&gt;</code></dt>
+                        <dd>Stretches the image in the corresponding dimension to the specified length</dd>
+
+                        <dt><code>&lt;percentage&gt;</code></dt>
+                        <dd>Stretches the image in the corresponding dimension to the specified percentage of the background positioning image.</dd>
                     </dl>
                 </section>
 
                 <section>
                     <h3><code>background</code></h3>
+                    <p>Sets all background style properties at once, such as color, image, origin and size, or repeat method. Components not set in the <code>background</code> shorthand property value declaration are set to their default values.</p>
+
+                    <p>This property is a shorthand for the following properties</p>
+                    <ul>
+                        <li><code>background-attachement</code></li>
+                        <li><code>background-clip</code></li>
+                        <li><code>background-color</code></li>
+                        <li><code>background-image</code></li>
+                        <li><code>background-origin</code></li>
+                        <li><code>background-position</code></li>
+                        <li><code>background-repeat</code></li>
+                        <li><code>background-size</code></li>
+                    </ul>
+
+                    <p>
+                        Examples
+                        <pre><code>
+                            /* Using a &lt;background-color&gt; */
+                            background: green;
+                                
+                            /* Using a &lt;bg-image&gt; and &lt;repeat-style&gt; */
+                            background: url("test.jpg") repeat-y;
+                              
+                            /* A single image, centered and scaled */
+                            background: no-repeat center/80% url("../img/image.png");
+                        </code></pre>
+                    </p>
                 </section>
             </article>
 
 
             <article>
                 <h2>Gradients</h2>
+                <p>CSS gradients are represented by the gradient data type, a special type of <mark>image made of a progressive transition between two or more colors.</mark> There are three types of gradients: linear, radial and conic</p>
+                <p>Gradients can be used anywhere you would se an image</p>
 
                 <section>
                     <h3><code>linear-gradient</code></h3>
+                    <p>
+                        <pre><code>
+                            .horizontal-gradient {
+                                background: linear-gradient(to right, blue, pink);
+                            }
+
+                            .diagonal-gradient {
+                                background: linear-gradient(to bottom right, blue, pink);
+                            }
+
+                            .angled-gradient {
+                                background: linear-gradient(70deg, blue, pink);
+                            }
+                        </code></pre>
+                    </p>
+                    <p>When using an angle, <code>0deg</code> creates a vertical gradient running bottom to top, <code>90deg</code> creates a horizontal gradient running left to right, and so on in a clockwise direction. Negative angles run in the counterclockwise direction.</p>
+
+                    <p>
+                        <pre><code>
+                            /* Using more than two colors */
+                            .auto-spaced-linear-gradient {
+                                background: linear-gradient(red, yellow, blue, orange);
+                            }
+
+                            /* Positioning color stops */
+                            .multicolor-linear {
+                                background: linear-gradient(to left, lime 28px, red 77%, cyan);
+                            }
+
+                            /* Creating hard lines between two colors
+                               instead of a gradual transition.
+                            */
+                            .striped {
+                                background: linear-gradient(to bottom left, cyan 50%, palegoldenrod 50%);
+                            }
+
+                            /* Color-hint to move the midpoint of the transition value to a certain point along the gradient (10% as the midpoint of the transition) */
+                            .color-hint {
+                                background: linear-gradient(blue, 10%, pink);
+                            }
+
+                            /* Creating color bands */
+                            background: linear-gradient(
+                                to left,
+                                lime 20%,
+                                red 30% 45%,
+                                cyan 55% 70%,
+                                yellow 80%
+                            );
+
+                            /* Stacked gradients */
+                            .stacked-linear {
+                                background:
+                                  linear-gradient(217deg, rgb(255 0 0 / 80%), rgb(255 0 0 / 0%) 70.71%),
+                                  linear-gradient(127deg, rgb(0 255 0 / 80%), rgb(0 255 0 / 0%) 70.71%),
+                                  linear-gradient(336deg, rgb(0 0 255 / 80%), rgb(0 0 255 / 0%) 70.71%);
+                            }
+                        </code></pre>
+                    </p>
                 </section>
 
                 <section>
                     <h3><code>radial-gradient</code></h3>
+                    <p>
+                        <pre><code>
+                            /* Basic radial gradient */
+                            .simple-radial {
+                                background: radial-gradient(red, blue);
+                              }
+
+                            /* Positioning radial color stops */
+                            .radial-gradient {
+                                background: radial-gradient(red 10px, yellow 30%, #1e90ff 50%);
+                            }
+
+                            /* Positioning the center of the gradient */
+                            .radial-gradient {
+                                background: radial-gradient(at 0% 30%, red 10px, yellow 30%, #1e90ff 50%);
+                            }
+                        </code></pre>
+                    </p>
                 </section>
 
                 <section>
