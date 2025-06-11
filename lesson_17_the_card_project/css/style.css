@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 
+    small min-width: 576px
+
+    medium 768px
+
+    large  92px
+
+    XL 1200px
+
+    mobile device landscape
+    max-height 492px
+    aspect ration 7/4
+
+*/
