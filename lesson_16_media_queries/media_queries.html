@@ -148,7 +148,106 @@
 
                 <section>
                     <h3>Testing for multiple queries</h3>
-                    <p></p>
+                    <p>Use comma-separated list of media queries to appy styles when the user's device matches any of the various media types, features or states</p>
+                    <p>
+                        <pre><code>
+                            /* Two media queries
+                            
+                            <mark>Styles will apply if either the user's device has a height of 680px or more,</mark>
+                            <mark>or if the browser viewport is in portrait mode (the viewport height is grater than the viewport width)</mark>
+
+                            */
+                            @media (min-height: 680px), screen and (orientation: portrait) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                    <p>In the example above, if the user is printing a PDF and the page height is 800px, the media query returns true because the first query component which tests whether the viewport has a height of 680px or more is true. Likewise, if a user is on a smartphone in portrait mode with a viewport height of 480px, the media query returns true because the second query component is true.</p>
+                </section>
+
+                <section>
+                    <h3>Inverting a query's meaning</h3>
+                    <p>The <code>not</code> keyword inverts the meaning of a single media query.</p>
+                    <p>
+                        <pre><code>
+                            /* The CSS styles in this media query will apply to everything except printed media */
+                            @media not print {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                    <p><mark>The <code>not</code> negates only the media query it is applied to. The <code>not</code>, without parenthesis, negates all the features within the media query in which it is contained. This means, in a comma-separated list of media queries, each <code>not</code> applies to the single query it is contained within, applying to all features within that single query.</mark></p>
+
+                    <p>
+                        <pre><code>
+                            /* The not applies to the first media query <code>screen and (color)</code>, which concludes at the first comma */
+                            @media not screen and (color), print and (color) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                    <p>Because the media query above starts with a media type <code>screen</code>, you cannot wrap <code>screen and (color)</code> with parentheses. On the other hand, if your media query consists of features only, then you <em>must</em> parenthesize the query</p>
+                    <p>
+                        <pre><code>
+                            @media not ((width > 1000px) and (color)), print and (color) {
+                                /* … */
+                            }
+
+                            /* Parentheses limit the components of the query that get negated.
+                            This only negates (width > 1000px) */
+                            @media (not (width > 1000px)) and (color), print and (color) {
+                                /* … */
+                            }
+
+                            /* not only negates the query to its right.
+                            In this example it only negates hover, but not the screen media type. */
+                            @media screen and not (hover) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                    
+                </section>
+
+                <section>
+                    <h3>Improving compatibility with older browsers</h3>
+                    <p>The <code>only</code> keyword prevents older browsers that do not support media queries with media features from applying the given styles. It has no effects on modern browers</p>
+                    <p>
+                        <pre><code>
+                            @media only screen and (color) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Testing for multiple features with <code>or</code></h3>
+                    <p>You can use <code>or</code> to test for a match among more than one feature, resovling to <code>true</code> if any of the features are true.</p>
+
+                    <p>
+                        <pre><code>
+                            /* This query tests for devices that have a monochrome display or howver capability */
+                            @media (not (color)) or (hover) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
+                    <p>Note: you cannot use the <code>or</code> operator on the same level as the <code>and</code> and <code>not</code> operators. You can either separate the media features with a comma or use parenthesis to group sub-expressions of media features to clarify the order of evaluation.</p>
+
+                    <p>
+                        <pre><code>
+                            /* These are both valid */
+                            @media ((color) and (hover)) or (monochrome) {
+                                /* … */
+                            }
+                              
+                            /* or */
+                            @media (color) and (hover), (monochrome) {
+                                /* … */
+                            }
+                        </code></pre>
+                    </p>
                 </section>
             </article>
         </main>
