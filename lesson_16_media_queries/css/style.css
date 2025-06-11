@@ -17,25 +17,13 @@ body {
     flex-direction: column;
 }
 
-header, main, footer {
+header, nav, main, footer {
     display: grid;
     grid-template-columns: 100%;
     place-content: center;
-    text-align: ;
-}
-
-nav {
-    display: grid;
-    grid-template-columns: repeat(2, 500px);
-    place-content: ;
-    place-items: center;
     text-align: center;
 }
 
-nav > * {
-    width: 300px;
-    border: 1px solid black;
-}
 
 header, footer {
     position: sticky;
@@ -62,6 +50,47 @@ footer {
     bottom: 0;
 }
 
-@media screen and (min-width: 480px) {
-    background-    
+/* || SMALL */
+@media screen and (min-width: 576px) {
+    body {
+        background-color: green;
+        background-image: radial-gradient(whitesmoke, green);
+    }   
+    nav {
+        display: none;
+    }
+}
+/* || MEDIUM */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: gold;
+        background-image: radial-gradient(whitesmoke, gold);
+    }   
+}
+/* || LARGE */
+@media screen and (min-width: 992px) {
+    body {
+        background-color: firebrick;
+        background-image: radial-gradient(whitesmoke, firebrick);
+    }   
+}
+/* || XL */
+@media screen and (min-width: 1200px) {
+    body {
+        background-color: rebeccapurple;
+        background-image: radial-gradient(whitesmoke, rebeccapurple);
+    }   
+}
+/* || MOBILE DEVICE LANDSCAPE */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+    body {
+        background-color: dodgerblue;
+        background-image: radial-gradient(whitesmoke, dodgerblue);
+    }
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+    nav {
+        display: none;
+    };   
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS Media Queries</title>
+    </head>
+    <body>
+        <header>
+            <h1>CSS Media Queries</h1>
+            <p>Media queries allow you to apply CSS styles depending on a device's media type (such as print vs screen) or other features or characteristics such as screen resolution or orientation, aspect ratio, browser viewport width or height, user preferences such as preferring reduced motion, data usage, or transparency.</p>
+        </header>
+
+        <main>
+            <article>
+                <h2>Syntax</h2>
+                <p>A media query is composed of <mark>an optional media type</mark> and <mark>any number of media feature expressions</mark>, which may optionally be combined in various ways using logical operators. Media queries are case insensitive</p>
+
+                <ul>
+                    <li><strong>Media types</strong> define the broad category of device for which the media query applies: all, print, screen</li>
+                    <li>
+                        <strong>Media features</strong> describe a specific characteristic of the user agent, output device or environment:
+                        <ul>
+                            <li><code>hover</code></li>
+                            <li><code>aspect-ratio</code></li>
+                            <li><code>width</code></li>
+                            <li><code>height</code></li>
+                            <li><code>display-mode</code></li>
+                            <li><code>color</code></li>
+                            <li><code>resolution</code></li>
+                            <li><code>among others...</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Logical operators</strong> can be used to compose a complex media query: <code>not</code>, <code>and</code>, and <code>only</code>. You can also combine multiple media queries into a single rule by separating them with commas.</li>
+                </ul>
+                <p>Note: A media query computes to <code>true</code> when the media type (if specified) matches the device on which a document is being displayed and <em>all</em> media feature expressions compute as true.</p>
+            </article>
+
+            <article>
+                <h2>Targeting media types</h2>
+            </article>
+
+            <article>
+                <h2>Targeting media features</h2>
+            </article>
+
+            <article>
+                <h2>Complex media queries</h2>
+            </article>
+        </main>
+
+        <hr>
+
+        <footer>
+            <p>Copyright &copy; Spencer Aranda</p>
+        </footer>
+    </body>
+</html>
