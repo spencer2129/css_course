@@ -20,16 +20,36 @@ header {
 
 nav {
     background-color: whitesmoke;
+    border: 2px solid #475569;
+    padding: 0.5rem 0;
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 nav ul {
     display: contents;
 }
 
+main {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+article {
+    border: 2px solid #475569;
+    padding: 1rem;
+    margin: 1rem;
+}
+
 img {
     border: 3px solid #1E2938;
     border-radius: 50%;
+    max-width: 500px;
+    height: auto;
 }
 
 footer {
