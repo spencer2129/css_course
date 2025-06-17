@@ -8,53 +8,13 @@
 
 body {
     font-family: "Nunito", sans-serif;
-    background-color: #475569;
-    background-image: radial-gradient(whitesmoke, #475569);
+    padding: 2rem;
     text-align: center;
+    list-style: circle;
 }
 
-header {
-    color: whitesmoke;
-    background-color: #1E2938;
-}
-
-nav {
-    background-color: whitesmoke;
-    border: 2px solid #475569;
-    padding: 0.5rem 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-nav ul {
-    display: contents;
-}
-
-main {
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-article {
-    border: 2px solid #475569;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-img {
-    border: 3px solid #1E2938;
-    border-radius: 50%;
-    max-width: 500px;
-    height: auto;
-}
-
-footer {
-    color: whitesmoke;
-    background-color: #1E2938;
+body > ul {
+    list-style: inherit;
 }
 
 /* 
@@ -70,4 +30,8 @@ footer {
     max-height 492px
     aspect ration 7/4
 
+
+
+    background-color: #475569;
+    background-image: radial-gradient(whitesmoke, #475569);
 */
