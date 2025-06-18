@@ -9,14 +9,13 @@
 body {
     font-family: "Nunito", sans-serif;
     padding: 2rem;
-    text-align: center;
-    list-style: circle;
+    text-align: ;
+    
 }
 
-body > ul {
-    list-style: inherit;
+.parent, .parent li ul {
+    list-style: disc;
 }
-
 /* 
     small min-width: 576px
 
