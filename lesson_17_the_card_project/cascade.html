@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cascade</title>
+</head>
+<body>
+    <header>
+        <h1>Introduction to the CSS cascade</h1>
+    </header>
+
+    <main>
+        <article>
+
+            <p>The cascade is an algorithm that defines how user agents combine property values originating from different sources. The cascade defines the origin and layer that takes precedence when declarations in more than one origin, cascade layer or scope block set a value for a property on an element.</p>
+
+            <p>When a selector matches an element, the property value from the origin with the highest precedence gets applied, even if the selector from a lower preceence origin or layer has greater specificity.</p>
+        </article>
+
+        <article>
+            <h2>Origin types</h2>
+            <p>The cascade algorithm's job is to select CSS delcarations in order to determine the correct value for CSS properties.</p>
+            <p>CSS declarations come from different origin types:</p>
+                
+            <dl>
+                <dt>user-agent stylesheet</dt>
+                <dd>user-agents or browsers have basic stylesheets that give default styles to any document.</dd>
+                <dd>Lowest precedence below user stylesheet and author stylesheets.</dd>
+
+                <dt>author stylesheets</dt>
+                <dd>Stylesheets written by web devlopers.</dd>
+
+                <dt>user stylesheets</dt>
+                <dd>In some or most browsers, the user of the website can choose to orverride styles using a custom user stylesheet. This is different than making changes in the devtool.</dd>
+
+                <dt>cascade layers</dt>
+                <dd>The cascade order is based on origin type</dd>
+                <dd>The cascade within each origin type is based on the declaration order of cascade layers within that type.</dd>
+                </dl>
+        </article>
+            
+        <article>
+            <h2>Cascading Order</h2>
+            <p>The cascading algorithm determines how to find the value to apply for each property for each documenet element. The following steps apply to the cascading algorithm.</p>
+
+            <ol>
+                <li><strong>Relevance: </strong>It first filters all the rules from the different sources to keep only the rules that appply to a given element. That means rules whose selector matches the given element and which are part of an appropriate media at-rule.</li>
+
+                <li>
+                    <strong>Origin and importance: </strong>Then it sorts these rules according to their importance, that is, whether or not they followed by <code>!important</code>, and by their origin.
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Precedence Order (low to high)</th>
+                                <th scope="col">Origin</th>
+                                <th scope="col">Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>user-agent (browser)</td>
+                                <td>normal</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>user</td>
+                                <td>normal</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>author (developer)</td>
+                                <td>normal</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>CSS keyframe animations</td>
+                                <td></td>
+                                
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>author (developer)</td>
+                                <td><code>!important</code></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>user</td>
+                                <td><code>!important</code></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>user-agent (browser)</td>
+                                <td><code>!important</code></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>CSS transitions</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+
+                <li><strong>Specificity: </strong>In case of equality with an origin, the specificity of a rule is considered to choose on value or another. The specificity of the selectors are compared, and the declaration with the highest specificity wins.</li>
+
+                <li><strong>Scoping proximity: </strong>When two selectors in the origin layer with precedence have the same specificity, the property value within scoped rules with the smallest number of hops up the DOM hierarchy to the scrop root wins.</li>
+
+                <li><strong>Order of appearance: </strong>In the origin with precedence, if there are competing values for a property that are in style block matching selectors of equal specificity and scoping proximity, the last declaration in the style order is applied.</li>
+            </ol>
+        </article>
+    </main>
+</body>
+</html>
