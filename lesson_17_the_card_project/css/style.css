@@ -14,7 +14,7 @@ body {
 }
 
 .parent, .parent li ul {
-    list-style: disc;
+    list-style: none;
 }
 /* 
     small min-width: 576px

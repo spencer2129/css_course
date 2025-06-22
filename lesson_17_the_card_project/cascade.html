@@ -49,6 +49,13 @@
 
                 <li>
                     <strong>Origin and importance: </strong>Then it sorts these rules according to their importance, that is, whether or not they followed by <code>!important</code>, and by their origin.
+                    <style>
+                        table, th, tr, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                            padding: 0.25rem;
+                        }
+                    </style>
                     <table>
                         <thead>
                             <tr>
@@ -109,6 +116,85 @@
 
                 <li><strong>Order of appearance: </strong>In the origin with precedence, if there are competing values for a property that are in style block matching selectors of equal specificity and scoping proximity, the last declaration in the style order is applied.</li>
             </ol>
+        </article>
+
+        <article>
+            <h2>Author styles: inline styles, layers and precedence</h2>
+            <p>Styles can be contained within layers within their origin type, and with author styles, there is also the issue of where inline styles land in the cascade order.</p>
+
+            <p>The order in which layers are declared is important in determining precedence. Normal styles in a layer take precedence over styles declared in prior layers; with normal styles declard outside of any layer taking precedence over normal layered styles regardless of specificity.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Precedence Order (low to high)</th>
+                        <th scope="col">Author style</th>
+                        <th scope="col">Importance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>A - first layer</td>
+                        <td>normal</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>B - second layer</td>
+                        <td>normal</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>C - last layer</td>
+                        <td>normal</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>All unlayered styles</td>
+                        <td>normal</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>inline <code>style</code></td>
+                        <td>normal</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>animations/td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>All unlayered styles</td>
+                        <td><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>C - last layer</td>
+                        <td><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>B - second layer</td>
+                        <td><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>A - first layer</td>
+                        <td><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>inline <code>style</code></td>
+                        <td><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>transitions</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </article>
     </main>
 </body>
