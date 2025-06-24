@@ -160,7 +160,7 @@
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>animations/td>
+                        <td>animations</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -195,6 +195,156 @@
                     </tr>
                 </tbody>
             </table>
+            <p>The layer order of precedence is inverted for styles delcared as <code>!important</code>. Important declarations found in a layer take precedence over important declarations found outside of a layer. Important delcarations found in the first layer (A) take precedence over important delcarations found in layer C, which take precedence over important declarations found outside of a layer.</p>
+
+            <section>
+                <h3>Inline style</h3>
+                <p>Only relevant to author styles are inline styles, delcared with the <code>style</code> attribute. Normal inline styles take precedence over any other normal author styles, no matter the specificity of the selector. Normal inline styles do no take precedence over animated or transitioned properties</p>
+
+                <p>Important inline styles take precedence over all other author styles. Three things can override an important inline style</p>
+
+                <ul>
+                    <li>An imporatnt user style</li>
+                    <li>An important user agent style</li>
+                    <li>A transitioned property</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Importance and layers</h3>
+                <p>The origin type precedence order is inverted for important styles. Important styles delcared outside of any cascade layer have lower precedence than those delcared as part of a layer. Important styles that come in early layers take precedence over important layers declared in subsequent cascade layers.</p>
+
+                <p><strong>Note: </strong>The <code>!important</code> flag reverses the precedence of cascade layers. For this reason, try not to use <code>!important</code> to override external sty les. Instead, use <code>@import</code> together with the <code>layer</code> keyword or <code>layer()</code> function to important external stylesheets (from frameworks, widget stylesheets, libraries, etc) into layers. Importing stylesheets into a layer as the first declaration in your CSS demotes their precedence, and author-defined layers, defined later in your CSS, will have higher precedence. The <code>!important</code> flag should only be used sparingly, if ever, to guard required styles against later overrides, in the first declared layer.</p>
+            </section>
+        </article>
+
+        <article>
+            <h2>Complete cascade order</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Precedence Order (low to high)</th>
+                        <th scope="col">Style Origin</th>
+                        <th scope="col">Importance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">1</td>
+                        <td>user-agent - first declared layer</td>
+                        <td rowspan="3">normal</td>
+                    </tr>
+                    <tr>
+                        <td>user-agent - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>user-agent - unlayered styles</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">2</td>
+                        <td>user - first declared layer</td>
+                        <td rowspan="3">normal</td>
+                    </tr>
+                    <tr>
+                        <td>user - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>user - unlayered styles</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">3</td>
+                        <td>author - first declared layer</td>
+                        <td rowspan="4">normal</td>
+                    </tr>
+                    <tr>
+                        <td>author - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>author - unlayered styles</td>
+                    </tr>
+                    <tr>
+                        <td>inline <code>style</code></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>animations</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">5</td>
+                        <td>author - unlayered styles</td>
+                        <td rowspan="4"><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>author - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>author - first declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>inline <code>style</code></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">6</td>
+                        <td>user - unlayered styles</td>
+                        <td rowspan="3"><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>user - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>user - first declared layer</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">7</td>
+                        <td>user-agent - unlayered styles</td>
+                        <td rowspan="3"><code>!important</code></td>
+                    </tr>
+                    <tr>
+                        <td>user-agent - last declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>user-agent - first declared layer</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>transitions</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <article>
+            <h2>Which CSS entities participate in the cascade</h2>
+            <p>Only CSS property/value pair declaration participate in the cascade.  CSS at-rule descriptors don't participate in the cascade and HTML presentational attributes are not part of the cascade.</p>
+
+            <section>
+                <h3>At-rules</h3>
+                <p>CSS at-rules containing entities other than declarations, such as a <code>@font-face</code> rule containing descriptors, don't participate in the cascade.</p>
+
+                <p>When it comes to <code>@import</code>, the <code>@import</code> doesn't participate itself in the cascade, but all of the imported styles do participate. If the <code>@import</code> defines a named or anonymous layer, the contents of the imported stylesheet are placed into the specified layer. All other CSS immported with <code>@import</code> is treated as the last declared layer.</p>
+            </section>
+
+            <section>
+                <h3>Presentational attributes</h3>
+                <p>Presentational attributes are attributes in the source document that can affect styling. While they are author styles, presentational attributes do not participate in the cascade.</p>
+            </section>
+        </article>
+
+        <article>
+            <h2>CSS animations and the cascade</h2>
+            <p>CSS animations, using <code>@keyframes</code> at-rules, define animations between states. <code>@keyframes</code> don't cascade, meaning that at any given time CSS takes values from only one single set of <code>@keyframes</code> and never mixes multiple ones. If multiple set of <code>@keyframes</code> are defined with the same animation name, the last defined set in the origin and layer with the greatest precedence is used.</p>
+
+            <p><strong>Note: </strong>There are no important animations, as property declarations in a <code>@keyframes</code> block that contain <code>!important</code> as part of the value are ignored.</p>
+        </article>
+
+        <article>
+            <h2>Resetting styles</h2>
+            <p>After your content has finished altering styles, it may find itself in a situation where it needs to restore them to a known state. This may happen in cases of animations, theme changes, and so forth. The CSS property <code>all</code> lets you quickly set almost everything in CSS back to a known state.</p>
+
+            <p><code>all</code> lets you opt to immediately restore all properties to any of their initial (default) state, the state inherited from the previous level of the cascade, a specific origin (the user-agent stylesheet, the author stylesheet, or the user stylesheet), or even to clear the values of the properites entirely.</p>
         </article>
     </main>
 </body>
