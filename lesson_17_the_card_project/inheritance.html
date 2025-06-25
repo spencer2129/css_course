@@ -17,14 +17,23 @@
 
         <article>
             <h2>Inherited properties</h2>
+            <p>When no value for an inherited property has been specified on an element, the element gets the <em>computed value</em> of that property on its parent element. Only the root element of the document gets the <em>initial value</em> given in the property's summary.</p>
+
+            <p><strong>Note: </strong>The initial value can be found in the formal syntax section of each CSS property reference page. The initial value should not be confused with the value specified by the browser's style sheet (user-agent stylesheet)!</p>
         </article>
 
         <article>
             <h2>Non-inherited properties</h2>
+            <p>When no value for a non-inherited property has been specified on an element, the element gets the initial value of that property (as specified in the property's summary)</p>
         </article>
 
         <article>
             <h2>Notes</h2>
+            <p>The <code>inherit</code> keyword allows authors to explicitly specify inheritance. It works on both inherited and non-inherited properties</p>
+
+            <p><mark><strong>Important: </strong>Inheritance is always from the parent element in the document true, even when the parent element is not the containing block!</mark></p>
+
+            <p>You can control inheritance for all properties at once using the <code>all</code> shorthand property which applies its value to all properties.</p>
         </article>
     </main>
 </body>
