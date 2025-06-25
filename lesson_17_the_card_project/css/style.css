@@ -6,15 +6,23 @@
     box-sizing: border-box;
 }
 
+nav {
+    list-style: lower-alpha;
+}
+
 body {
     font-family: "Nunito", sans-serif;
     padding: 2rem;
+    list-style: circle;
     text-align: ;
     
 }
+ body ul {
+    list-style: inherit;
+ }
 
 .parent, .parent li ul {
-    list-style: none;
+    list-style: inherit;
 }
 /* 
     small min-width: 576px
