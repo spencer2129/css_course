@@ -17,6 +17,23 @@
 
         <article>
             <h2>How is specificity calculated?</h2>
+            <p>Specificity is an algorithm that calculates the weight that is applied to a given CSS declaration. The weight is determined by the number of selectors of each weight category in the selector matching the element. If there are two or more declarations providing different property values for the same element, the declaration value in the style block having the matching selector with the greatest algorithmic weight gets applied.</p>
+
+            <p>The specificity algorithm is basically a three-column value of three categories or weights - ID, CLASS, and TYPE - corresponding to the three types of selectors. The value represents the count of selector components in each weight category and is written as ID - CLASS - TYPE. The three columns are created by counting the number of selector components for each selector weight category in the selectors that match the element.</p>
+
+            <section>
+                <h3>Selector weight categories</h3>
+                <dl>
+                    <dt>ID column</dt>
+                    <dd>Includes only ID selectors, such as <code>#example</code>. For each ID in a matching selector, add 1-0-0 to the weight value.</dd>
+
+                    <dt>CLASS column</dt>
+                    <dd>Includes class selectors, such as <code>.myClass</code>.</dd>
+                    <dd>Attribute selectors like <code>[type="radio"]</code> and <code>[lang|="fr"]</code>.</dd>
+                    <dd>Pseudo-classes, such as <code>:hover</code>, <code>:nth-of-type(3n)</code>, and <code>:required</code></dd>
+                    <dd>For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.</dd>
+                </dl>
+            </section>
         </article>
 
         <article>
