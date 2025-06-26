@@ -43,6 +43,42 @@
                     <dd>These selectors do not impact the specificity weight value.</dd>
                 </dl>
             </section>
+
+            <section>
+                <h3>Matching selector</h3>
+
+                <p>The specificity weight comes from the matching selector.</p>
+                <pre><code>
+                    [type="password"],
+                    input:focus,
+                    :root #myApp input:required {
+                        color: blue;
+                    }
+                </code></pre>
+                <p>The selector <code>[type="password"]</code> with a specificity of <code>0-1-0</code> applies the <code>color:blue</code> declaration to all password input types</p>
+                
+                <p>The <code>input:focus</code> selector with a weight of <code>0-1-1</code> applies to all inputs, no matter the type, when receiving focus. This weight is made up of the <code>:focus</code> pseudo-class (0-1-0) and the <code>input</code> type (0-0-1). If the password input has focus, it will match the <code>input:focus</code> selector., and the specificity weight for the <code>color:blue</code> style declaration will be <code>0-1-1</code>. When the password doesn't have focus, the specificity weight remains at <code>0-1-0</code> matching the <code>[type="password"]</code> selector.</p>
+
+                <p>The <code>:root #myApp input:required</code> selector with specificity of <code>1-2-1</code> is based on one ID, two pseudo-classes, and one element type. This selector applies to all required inputs nested in an element with attribute <code>id="myApp"</code></p>
+
+                <p>In this example if the password input type with required is nested in an element with <code>id="myApp"</code> set, the specificity weight will be <code>1-2-1</code> regardless whether or not it has focus. Why is the weight not <code>0-1-1</code> or <code>0-1-0</code>? This is because the specificity weight comes from the matching selector with the greatest specificity weight. The weight is determined by comparing the values in the three columns, from left to right.</p>
+
+                <pre><code>
+                    [type="password"] {
+                        /* 0-1-0 */
+                      }
+                      input:focus {
+                        /* 0-1-1 */
+                      }
+                      :root #myApp input:required {
+                        /* 1-2-1 */
+                      }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Three-column comparison</h3>
+            </section>
         </article>
 
         <article>
