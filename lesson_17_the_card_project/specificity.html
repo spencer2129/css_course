@@ -32,6 +32,15 @@
                     <dd>Attribute selectors like <code>[type="radio"]</code> and <code>[lang|="fr"]</code>.</dd>
                     <dd>Pseudo-classes, such as <code>:hover</code>, <code>:nth-of-type(3n)</code>, and <code>:required</code></dd>
                     <dd>For each class, attribute selector, or pseudo-class in a matching selector, add 0-1-0 to the weight value.</dd>
+
+                    <dt>TYPE column</dt>
+                    <dd>Includes type selectors, such as <code>p</code>, <code>h1</code>, and <code>td</code>.</dd>
+                    <dd>Includes pseudo-elements like <code>::before</code>, <code>::placeholder</code>, and all other selectors with double-colon notation</dd>
+                    <dd>For each type or pseudo-element in a matching selector, add 0-0-1 to the weight value.</dd>
+
+                    <dt>No value</dt>
+                    <dd>The universal selector <code>*</code> and the pseudo-class <code>:where()</code> and its parameters aren't counted when calculating the weight so their value is 0-0-0, but they do match elements.</dd>
+                    <dd>These selectors do not impact the specificity weight value.</dd>
                 </dl>
             </section>
         </article>
