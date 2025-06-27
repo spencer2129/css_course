@@ -133,6 +133,39 @@
                 <h3>The <code>:is()</code>, <code>:not()</code>, <code>:has()</code> and CSS nesting exception</h3>
 
                 <p>The matches-any pseudo-class <code>:is()</code>, the relational pseudo-class <code>:has()</code>, and the negation pseudo-class <code>:not()</code> are not considered as pseudo-classes in the specificity weight calculation. They themselves don't add any weight to the specificity equation. However, the selector parameters passed into the pseudo-class parenthesis are part of the specificity algorithm; the weight of the matches-any and negation pseudo-class in the specificity value calculation is the weight of the parameter's weight.</p>
+
+                <p><strong>Note: </strong>The specificity weight provided by the <code>:is()</code>, <code>:has()</code> and <code>:not()</code> pseudo-classes is the value of selector parameter, not of the pseudo-class.</p>
+
+                <p>All three of the pseudo-classes accept complex selector lists, a list of comma-separated selectors, as a parameter. This feature can be used to increase a selectors specificity.</p>
+
+                <pre><code>
+                    :is(p, #fakeId) {
+                    /* 1-0-0 */
+                    }
+                    h1:has(+ h2, > #fakeId) {
+                    /* 1-0-1 */
+                    }
+                    p:not(#fakeId) {
+                    /* 1-0-1 */
+                    }
+                    div:not(.inner, #fakeId) p {
+                    /* 1-0-2 */
+                    }
+                </code></pre>
+
+                <p>In the example above, the <code>#fakeId</code> adds <code>1-0-0</code> to the specificity weight of each paragraph.</p>
+
+                <pre><code>
+                    /* When creating complex selector lists with CSS nesting this behaves in exactly the same way as the :is() pseudo-class */
+
+                    p,
+                    #fakeId {
+                        span {
+                            /* 1-0-1 */
+                        }
+                    }
+                </code></pre>
+                <p>The code above the specificity is taken from <code>#fakeId</code> and also <code>span</code>, so this create a specificity of <code>1-0-1</code> for both <code>p span</code> and <code>#fakeId span</code>. This is the equivalent as <code>:is(p, #fakeId) span</code> selector.</p>
             </section>
         </article>
 
