@@ -78,6 +78,61 @@
 
             <section>
                 <h3>Three-column comparison</h3>
+
+                <p>Once the specificity values of the relevant selectors are determined, the number of selector components in each column are compared, from left to right.</p>
+
+                <pre><code>
+                    /* The first column is the value of the ID component. The selector with the greater value in the ID column wins no matter what are the values in the other columns */
+
+                    #myElement {
+                        color: green; /* 1-0-0  - WINS!! */
+                      }
+                      .bodyClass .sectionClass .parentClass [id="myElement"] {
+                        color: yellow; /* 0-4-0 */
+                      }
+                </code></pre>
+                    
+                <pre><code>
+                    /* The CLASS column is the count of class names, attribute selectors and pseudo-classes in the selector.
+                    When the ID column value is the same, the selector with the greater value in the CLASS column wins, no matter the value in the TYPE column.*/
+
+                    #myElement {
+                        color: yellow; /* 1-0-0 */
+                      }
+                      #myApp [id="myElement"] {
+                        color: green; /* 1-1-0  - WINS!! */
+                      }
+                </code></pre>
+
+                <pre><code>
+                    /* If the numbers in the CLASS and ID columns in competing selectors are the same, the TYPE column becomes relevant. 
+                    The TYPE column is the number of element types and pseudo-elements in the selector. 
+                    The selector with the greater number in TYPE column wins*/
+
+                    :root input {
+                        color: green; /* 0-1-1 - WINS because CLASS column is greater */
+                      }
+                      html body main input {
+                        color: yellow; /* 0-0-4 */
+                      }
+                </code></pre>
+
+                <pre><code>
+                    /* If competing selectors have the same values in the all the three columns, the proximity rule comes into play, wherein the lat declared style gets precedence.*/
+
+                    input.myClass {
+                        color: yellow; /* 0-1-1 */
+                      }
+                      :root input {
+                        color: green; /* 0-1-1 WINS because it comes later */
+                      }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>The <code>:is()</code>, <code>:not()</code>, <code>:has()</code> and CSS nesting exception</h3>
+
+                <p>The matches-any pseudo-class <code>:is()</code>, the relational pseudo-class <code>:has()</code>, and the negation pseudo-class <code>:not()</code> are not considered as pseudo-classes in the specificity weight calculation. They themselves don't add any weight to the specificity equation. However, the selector parameters passed into the pseudo-class parenthesis are part of the specificity algorithm; the weight of the matches-any and negation pseudo-class in the specificity value calculation is the weight of the parameter's weight.</p>
             </section>
         </article>
 
