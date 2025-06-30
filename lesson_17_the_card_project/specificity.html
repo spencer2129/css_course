@@ -167,6 +167,90 @@
                 </code></pre>
                 <p>The code above the specificity is taken from <code>#fakeId</code> and also <code>span</code>, so this create a specificity of <code>1-0-1</code> for both <code>p span</code> and <code>#fakeId span</code>. This is the equivalent as <code>:is(p, #fakeId) span</code> selector.</p>
             </section>
+
+            <section>
+                <h3>Inline styles</h3>
+                <p>Inline styles added to an element (e.g., <code>style="font-weight: bold;"</code>) always overwrite any normal styles in author stylesheets. Inline styles actually have a higher precedence in the cascade order. You can think of it having a specificity of <code>1-0-0-0</code>, although in reality its not the specificity, but the cascade order precedence that is higher.</p>
+
+                <p>The only way to overwrite it is by using the <code>!important</code> value in your author stylesheet. However, it will be overwritten, NOT because of specificity, but because of the higher precedence in the cascade order.</p>
+
+                <pre><code>
+                    p[style*="purple"] {
+                        color: rebeccapurple !important;
+                      }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>The <code>!important</code> exception</h3>
+                <p>CSS declarations marked as imortant override any other declarations within the same cascade layer and origin. Although technically, <code>!important</code> has nothing to do with specificity, it interacts directly with specificity and the cascade. It reverses the cascade order of stylesheets.</p>
+
+                <p>If declarations from the same origin and cascade layer conflict and one property value has the <code>!important</code> flag set, the important delcaration is applied no matter the specificity. When conflicting declarations from the same origin and cascade layer with the <code>!important</code> flag are applied to the same element, the declaration with a greater specificity is applied.</p>
+
+                <p>Using <code>!important</code> to override specificity is considered a bad practice. Understanding specificity and cascade order should remove any need for the <code>!important</code> flag.</p>
+
+                <p>One big tip if you're using CSS external libraries, is to instead of using <code>!important</code> to override CSS from external libraries, import the third-party scripts directly into cascade layers.</p>
+            </section>
+
+            <section>
+                <h3>The <code>:where()</code> exception</h3>
+                <p>The specificity-adjustment pseudo-class <code>:where()</code> always has its specificity replaced with zero, <code>0-0-0</code>. It takes a selector list as its argument, and selects any element that can be selected by one of the selectors in that list.</p>
+
+                <p>The difference between <code>:where()</code> and <code>:is()</code> is that <code>:where()</code> always has 0 specificity, where as <code>:is()</code> takes on the specificity of the most specific selector in its arguments.</p>
+
+                <pre><code>
+                    :where(#defaultTheme) a {
+                        /* 0-0-1 */
+                        color: red;
+                    }
+                </code></pre>
+
+                <p>In creating third-party CSS to be sued by developers who don't have access to edit your CSS, it is considered a good practice to create CSS witht lowest possible specificity using <code>:where()</code> as in the example above.  Then developers implementing the widget can easily override the link color using only type selectors.</p>
+
+                <pre><code>
+                    footer a {
+                        /* 0-0-2 */
+                        color: blue;
+                    }
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>How <code>@scope</code> block affect specificity</h3>
+                <p>The <code>@scope</code> CSS at-rule enables you to select elements in specific DOM subtrees, targeting elements precisely without writing overly-specific selectors that are hard to override, and without coupling your selectors too tightly to the DOM structure.</p>
+
+                <p>Including a ruleset inside a <code>@scope</code> block does not affect the specificity of its selector, regardless of the selectors used inside the scope root and limit.</p>
+
+                <pre><code>
+                    @scope (.article-body) {
+                        /* img has a specificity of 0-0-1, as expected */
+                        img {
+                        }
+                    }
+                </code></pre>
+
+                <p>If you decide to prepend the <code>:scope</code> pseudo-class to your scoped selectors, youll need to factor it in when calculating their specificity.</p>
+
+                <pre><code>
+                    @scope (.article-body) {
+                        /* :scope img has a specificity of 0-1-0 + 0-0-1 = 0-1-1 */
+                        :scope img {
+                        }
+                    }
+                </code></pre>
+
+                <p>When using the <code>&</code> selector inside a <code>@scope</code> block, <code>&</code> represents the scope root selector; it is internally rewritten to that selector wrapped inside an <code>:is()</code> selector.</p>
+
+                <pre><code>
+                    @scope (figure, #primary) {
+                        & img {
+                        }
+                    }
+
+                    /* & img is equivalent to :is(figure, $primary) img.*/
+                </code></pre>
+                <p>Since <code>:is()</code> takes the specificity of its most specific argument(<code>#primary</code>, in this case), the specificity of the scoped <code>& img</code> selector is therefore 1-0-0 + 0-0-1 = 1-0-1</p>
+            </section>
         </article>
 
         <article>
