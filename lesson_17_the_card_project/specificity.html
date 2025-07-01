@@ -255,6 +255,60 @@
 
         <article>
             <h2>Tips for handling specificity headaches</h2>
+            <p>Instead of using <code>!important</code> consider using the cascade layers and using low weight specificity throughout your CSS so that styles are easily overridden with slightly more specific rules. Using semantic HTML helps provide anchors from which to apply styling.</p>
+
+            <section>
+                <h3>Making selectors specific with and without adding specificity</h3>
+                
+                <p>By indicating the section of the document you're styling before the element you're selecting, the rule becomes more specific. Depending on how you add it, you can add some, a lot, or no specificy.</p>
+
+                <pre><code>
+                    &lt;main id="myContent"&gt;
+                        &lt;h1&gt;Text&lt;/h1&gt;
+                    &lt;/main&gt;
+
+                    #myContent h1 {
+                        color: green; /* 1-0-1 */
+                    }
+                    [id="myContent"] h1 {
+                        color: yellow; /* 0-1-1 */
+                    }
+                    :where(#myContent) h1 {
+                        color: blue; /* 0-0-1 */
+                    }
+
+                    /* No matter the order, the heading will be green because that rule is the most specific.*/
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Reducing ID specificity</h3>
+
+                <p>Specificity is based on the form of a selector. Including the <code>id</code> of an element as an attribute selector rather than an id selector is a good way to make an element more specific without adding an overabundance of specificity. In the previous example, the selector <code>[id="myContent"]</code> counts as an attribute selector for the purpose of determining the selector's specificity, even though it selects an ID.</p>
+                <p>You can also include the <code>id</code> or any part of a selector as a parameter in the <code>:where()</code> specificity adjustment pseudo class if you need to make a selector more specific but don't want to add any specificity at all.</p>
+            </section>
+
+            <section>
+                <h3>Increasing specificity by duplicating selector</h3>
+
+            </section>
+
+            <section>
+                <h3>Precedence over third-party CSS</h3>
+            </section>
+
+            <section>
+                <h3>Avoiding and overriding <code>!important</code></h3>
+
+            </section>
+
+            <section>
+                <h3>Tree proximity ignorance</h3>
+            </section>
+
+            <section>
+                <h3>Directly targeted elements vs inherited styles</h3>
+            </section>
         </article>
 
         <article>
